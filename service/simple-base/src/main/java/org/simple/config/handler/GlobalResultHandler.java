@@ -49,7 +49,7 @@ public class GlobalResultHandler implements ResponseBodyAdvice<Object> {
         if (body instanceof CommonResult) {
             return body;
         }
-        Object wrap = CommonResult.success(body,"操作成功");
+        Object wrap = CommonResult.success(body, "操作成功");
         /* 防止返回类型为string时需要特殊判断 */
         if (body instanceof String) {
             try {

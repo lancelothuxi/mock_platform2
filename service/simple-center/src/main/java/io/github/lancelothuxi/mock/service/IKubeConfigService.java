@@ -1,19 +1,19 @@
 package io.github.lancelothuxi.mock.service;
 
-import java.util.List;
 import io.github.lancelothuxi.mock.domain.KubeConfig;
+
+import java.util.List;
 
 /**
  * k8s管理Service接口
- * 
+ *
  * @author ruoyi
  * @date 2023-09-08
  */
-public interface IKubeConfigService 
-{
+public interface IKubeConfigService {
     /**
      * 查询k8s管理
-     * 
+     *
      * @param id k8s管理主键
      * @return k8s管理
      */
@@ -21,7 +21,7 @@ public interface IKubeConfigService
 
     /**
      * 查询k8s管理列表
-     * 
+     *
      * @param kubeConfig k8s管理
      * @return k8s管理集合
      */
@@ -29,7 +29,7 @@ public interface IKubeConfigService
 
     /**
      * 新增k8s管理
-     * 
+     *
      * @param kubeConfig k8s管理
      * @return 结果
      */
@@ -37,7 +37,7 @@ public interface IKubeConfigService
 
     /**
      * 修改k8s管理
-     * 
+     *
      * @param kubeConfig k8s管理
      * @return 结果
      */
@@ -45,7 +45,7 @@ public interface IKubeConfigService
 
     /**
      * 批量删除k8s管理
-     * 
+     *
      * @param ids 需要删除的k8s管理主键集合
      * @return 结果
      */
@@ -53,7 +53,7 @@ public interface IKubeConfigService
 
     /**
      * 删除k8s管理信息
-     * 
+     *
      * @param id k8s管理主键
      * @return 结果
      */

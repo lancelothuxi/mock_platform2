@@ -101,8 +101,8 @@ logging:
     org.simple: debug # debug 可以查看打印的sql
     com.baomidou.dynamic: debug
 mybatis-plus:
-#  configuration:
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #  configuration:
+  #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     sql-parser-cache: true
     banner: false

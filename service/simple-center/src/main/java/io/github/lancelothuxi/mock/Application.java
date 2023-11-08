@@ -10,11 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author lancelot huxisuz@gmail.com
  */
 @SpringBootApplication
-@MapperScan(basePackages = {"io.github.lancelothuxi.mock.mapper","io.github.lancelothuxi.mock.system.mapper"})
+@MapperScan(basePackages = {"io.github.lancelothuxi.mock.mapper", "io.github.lancelothuxi.mock.system.mapper"})
 public class Application {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    SpringApplication.run(Application.class, args);
-  }
+        SpringApplication.run(Application.class, args);
+    }
 }

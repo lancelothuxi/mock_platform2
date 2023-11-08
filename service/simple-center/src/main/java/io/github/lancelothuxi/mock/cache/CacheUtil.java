@@ -9,9 +9,9 @@ import com.google.common.base.Joiner;
  */
 public class CacheUtil {
 
-  public static final String CONFIG_PREFX = "mockServer:mockConfig:";
+    public static final String CONFIG_PREFX = "mockServer:mockConfig:";
 
-  public static String buildKey4Config(String... args) {
-    return CONFIG_PREFX + Joiner.on("_").useForNull("null").join(args);
-  }
+    public static String buildKey4Config(String... args) {
+        return CONFIG_PREFX + Joiner.on("_").useForNull("null").join(args);
+    }
 }

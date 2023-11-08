@@ -20,6 +20,7 @@
         <java.version>1.8</java.version>
         <spring-boot.version>2.7.5</spring-boot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <caffeine.version>2.9.3</caffeine.version>
     </properties>
     <dependencies>
         <dependency>
@@ -34,16 +35,7 @@
                 <artifactId>commons-lang</artifactId>
                 <version>2.6</version>
             </dependency>
-            <dependency>
-                <groupId>com.github.binarywang</groupId>
-                <artifactId>weixin-java-miniapp</artifactId>
-                <version>4.4.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.binarywang</groupId>
-                <artifactId>weixin-java-pay</artifactId>
-                <version>4.4.0</version>
-            </dependency>
+
             <dependency>
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity</artifactId>
@@ -102,21 +94,6 @@
                 <version>5.8.10</version>
             </dependency>
             <dependency>
-                <groupId>io.minio</groupId>
-                <artifactId>minio</artifactId>
-                <version>8.4.5</version>
-            </dependency>
-            <dependency>
-                <groupId>com.aliyun.oss</groupId>
-                <artifactId>aliyun-sdk-oss</artifactId>
-                <version>3.15.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.qcloud</groupId>
-                <artifactId>cos_api</artifactId>
-                <version>5.6.89</version>
-            </dependency>
-            <dependency>
                 <groupId>com.github.yitter</groupId>
                 <artifactId>yitter-idgenerator</artifactId>
                 <version>1.0.6</version>
@@ -135,11 +112,6 @@
                 <groupId>com.aliyun</groupId>
                 <artifactId>dysmsapi20170525</artifactId>
                 <version>2.0.10</version>
-            </dependency>
-            <dependency>
-                <groupId>com.tencentcloudapi</groupId>
-                <artifactId>tencentcloud-sdk-java</artifactId>
-                <version>3.1.57</version>
             </dependency>
             <!--认证授权框架-->
             <dependency>
@@ -164,6 +136,26 @@
                 <artifactId>easy-captcha</artifactId>
                 <version>1.6.2</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>guava</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>kubernetes-client</artifactId>
+                <version>6.8.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>kubernetes-server-mock</artifactId>
+                <version>6.8.0</version>
+                <scope>test</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>

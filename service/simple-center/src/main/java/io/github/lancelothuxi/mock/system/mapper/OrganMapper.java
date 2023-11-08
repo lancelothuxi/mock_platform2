@@ -2,10 +2,10 @@ package io.github.lancelothuxi.mock.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import io.github.lancelothuxi.mock.system.dto.organ.OrganTreeDto;
+import io.github.lancelothuxi.mock.system.entity.OrganEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import io.github.lancelothuxi.mock.system.entity.OrganEntity;
 
 import java.util.List;
 

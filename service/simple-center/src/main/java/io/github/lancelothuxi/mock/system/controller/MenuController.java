@@ -4,15 +4,15 @@ import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.annotation.SaMode;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.yitter.idgen.YitIdHelper;
+import io.github.lancelothuxi.mock.system.dto.menu.MenuQuery;
+import io.github.lancelothuxi.mock.system.dto.menu.MenuTreeDto;
+import io.github.lancelothuxi.mock.system.entity.MenuEntity;
 import io.github.lancelothuxi.mock.system.service.IMenuService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.simple.dto.IdsModel;
 import org.simple.dto.PageResult;
-import io.github.lancelothuxi.mock.system.dto.menu.MenuQuery;
-import io.github.lancelothuxi.mock.system.dto.menu.MenuTreeDto;
-import io.github.lancelothuxi.mock.system.entity.MenuEntity;
 import org.simple.utils.CommonResult;
 import org.springframework.web.bind.annotation.*;
 

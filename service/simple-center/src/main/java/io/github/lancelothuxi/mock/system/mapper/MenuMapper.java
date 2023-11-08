@@ -2,9 +2,9 @@ package io.github.lancelothuxi.mock.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
-import org.apache.ibatis.annotations.*;
 import io.github.lancelothuxi.mock.system.dto.menu.MenuTreeDto;
 import io.github.lancelothuxi.mock.system.entity.MenuEntity;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 

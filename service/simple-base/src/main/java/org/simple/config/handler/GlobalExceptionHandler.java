@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
      * @return 统一结果
      */
     @ExceptionHandler(value = WorkFlowException.class)
-    public CommonResult  workFlowExceptionHandler(WorkFlowException ex) {
+    public CommonResult workFlowExceptionHandler(WorkFlowException ex) {
         if (ex != null) {
             return CommonResult.failed(ex.getErrorMessage());
         }
@@ -42,7 +42,7 @@ public class GlobalExceptionHandler {
      * @return 统一结果
      */
     @ExceptionHandler(value = CustomException.class)
-    public CommonResult  customExceptionHandler(CustomException ex) {
+    public CommonResult customExceptionHandler(CustomException ex) {
         if (ex != null) {
             return CommonResult.failed(ex.getErrorMessage());
         }

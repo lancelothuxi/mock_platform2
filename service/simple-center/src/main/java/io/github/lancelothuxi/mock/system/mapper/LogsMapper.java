@@ -1,10 +1,10 @@
 package io.github.lancelothuxi.mock.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import io.github.lancelothuxi.mock.system.dto.log.LogsQuery;
 import io.github.lancelothuxi.mock.system.entity.LogsEntity;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 

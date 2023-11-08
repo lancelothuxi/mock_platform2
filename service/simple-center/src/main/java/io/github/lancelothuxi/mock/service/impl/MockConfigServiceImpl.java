@@ -18,128 +18,130 @@ import java.util.List;
  */
 @Service
 public class MockConfigServiceImpl implements IMockConfigService {
-  @Autowired LocalCache localCache;
-  @Autowired private MockConfigMapper mockConfigMapper;
+    @Autowired
+    LocalCache localCache;
+    @Autowired
+    private MockConfigMapper mockConfigMapper;
 
-  /**
-   * 查询服务mock方法
-   *
-   * @param id 服务mock方法主键
-   * @return 服务mock方法
-   */
-  @Override
-  public MockConfig selectMockConfigById(Long id) {
-    return mockConfigMapper.selectMockConfigById(id);
-  }
-
-  /**
-   * 查询服务mock方法列表
-   *
-   * @param mockConfig 服务mock方法
-   * @return 服务mock方法
-   */
-  @Override
-  public List<MockConfig> selectMockConfigList(MockConfig mockConfig) {
-    return mockConfigMapper.selectMockConfigList(mockConfig);
-  }
-
-  @Override
-  public List<MockConfig> fuzzlySelectMockConfigList(MockConfig mockConfig) {
-    return mockConfigMapper.fuzzlySelectMockConfigList(mockConfig);
-  }
-
-  /**
-   * 查询服务mock方法
-   *
-   * @param mockConfig 服务mock方法
-   * @return 服务mock方法
-   */
-  @Override
-  public MockConfig selectMockConfig(MockConfig mockConfig) {
-
-    return mockConfigMapper.selectMockConfig(mockConfig);
-  }
-
-  @Override
-  public String queryMockConfigData(MockConfig mockConfig) {
-    return mockConfigMapper.selectMockConfigData(mockConfig);
-  }
-
-  /**
-   * 新增服务mock方法
-   *
-   * @param mockConfig 服务mock方法
-   * @return 结果
-   */
-  @Override
-  public Long insertMockConfig(MockConfig mockConfig) {
-    localCache.mockConfigAdd(mockConfig);
-    return mockConfigMapper.insertMockConfig(mockConfig);
-  }
-
-  /**
-   * 修改服务mock方法
-   *
-   * @param mockConfig 服务mock方法
-   * @return 结果
-   */
-  @Override
-  public int updateMockConfig(MockConfig mockConfig) {
-    int updateMockConfig = mockConfigMapper.updateMockConfig(mockConfig);
-
-    MockConfig real = mockConfigMapper.selectMockConfigById(mockConfig.getId());
-
-    localCache.mockConfigUpdate(real);
-
-    return updateMockConfig;
-  }
-
-  /**
-   * 批量删除服务mock方法
-   *
-   * @param ids 需要删除的服务mock方法主键
-   * @return 结果
-   */
-  @Override
-  public int deleteMockConfigByIds(String ids) {
-    String[] idArray = Convert.toStrArray(ids);
-    for (String s : idArray) {
-      MockConfig real = mockConfigMapper.selectMockConfigById(Long.valueOf(s));
-      localCache.mockConfigDelete(real);
+    /**
+     * 查询服务mock方法
+     *
+     * @param id 服务mock方法主键
+     * @return 服务mock方法
+     */
+    @Override
+    public MockConfig selectMockConfigById(Long id) {
+        return mockConfigMapper.selectMockConfigById(id);
     }
 
-    return mockConfigMapper.deleteMockConfigByIds(idArray);
-  }
-
-  /**
-   * 删除服务mock方法信息
-   *
-   * @param id 服务mock方法主键
-   * @return 结果
-   */
-  @Override
-  public int deleteMockConfigById(Long id) {
-
-    MockConfig mockConfig = mockConfigMapper.selectMockConfigById(id);
-    if (mockConfig == null) {
-      return 0;
+    /**
+     * 查询服务mock方法列表
+     *
+     * @param mockConfig 服务mock方法
+     * @return 服务mock方法
+     */
+    @Override
+    public List<MockConfig> selectMockConfigList(MockConfig mockConfig) {
+        return mockConfigMapper.selectMockConfigList(mockConfig);
     }
 
-    int deleteMockConfigById = mockConfigMapper.deleteMockConfigById(id);
+    @Override
+    public List<MockConfig> fuzzlySelectMockConfigList(MockConfig mockConfig) {
+        return mockConfigMapper.fuzzlySelectMockConfigList(mockConfig);
+    }
 
-    localCache.mockConfigDelete(mockConfig);
+    /**
+     * 查询服务mock方法
+     *
+     * @param mockConfig 服务mock方法
+     * @return 服务mock方法
+     */
+    @Override
+    public MockConfig selectMockConfig(MockConfig mockConfig) {
 
-    return deleteMockConfigById;
-  }
+        return mockConfigMapper.selectMockConfig(mockConfig);
+    }
 
-  /**
-   * 批量配置mock规则
-   *
-   * @param MockConfigList
-   * @return
-   */
-  @Override
-  public int batchConfigMockConfig(List<MockConfig> MockConfigList) {
-    return mockConfigMapper.batchConfigMock(MockConfigList);
-  }
+    @Override
+    public String queryMockConfigData(MockConfig mockConfig) {
+        return mockConfigMapper.selectMockConfigData(mockConfig);
+    }
+
+    /**
+     * 新增服务mock方法
+     *
+     * @param mockConfig 服务mock方法
+     * @return 结果
+     */
+    @Override
+    public Long insertMockConfig(MockConfig mockConfig) {
+        localCache.mockConfigAdd(mockConfig);
+        return mockConfigMapper.insertMockConfig(mockConfig);
+    }
+
+    /**
+     * 修改服务mock方法
+     *
+     * @param mockConfig 服务mock方法
+     * @return 结果
+     */
+    @Override
+    public int updateMockConfig(MockConfig mockConfig) {
+        int updateMockConfig = mockConfigMapper.updateMockConfig(mockConfig);
+
+        MockConfig real = mockConfigMapper.selectMockConfigById(mockConfig.getId());
+
+        localCache.mockConfigUpdate(real);
+
+        return updateMockConfig;
+    }
+
+    /**
+     * 批量删除服务mock方法
+     *
+     * @param ids 需要删除的服务mock方法主键
+     * @return 结果
+     */
+    @Override
+    public int deleteMockConfigByIds(String ids) {
+        String[] idArray = Convert.toStrArray(ids);
+        for (String s : idArray) {
+            MockConfig real = mockConfigMapper.selectMockConfigById(Long.valueOf(s));
+            localCache.mockConfigDelete(real);
+        }
+
+        return mockConfigMapper.deleteMockConfigByIds(idArray);
+    }
+
+    /**
+     * 删除服务mock方法信息
+     *
+     * @param id 服务mock方法主键
+     * @return 结果
+     */
+    @Override
+    public int deleteMockConfigById(Long id) {
+
+        MockConfig mockConfig = mockConfigMapper.selectMockConfigById(id);
+        if (mockConfig == null) {
+            return 0;
+        }
+
+        int deleteMockConfigById = mockConfigMapper.deleteMockConfigById(id);
+
+        localCache.mockConfigDelete(mockConfig);
+
+        return deleteMockConfigById;
+    }
+
+    /**
+     * 批量配置mock规则
+     *
+     * @param MockConfigList
+     * @return
+     */
+    @Override
+    public int batchConfigMockConfig(List<MockConfig> MockConfigList) {
+        return mockConfigMapper.batchConfigMock(MockConfigList);
+    }
 }

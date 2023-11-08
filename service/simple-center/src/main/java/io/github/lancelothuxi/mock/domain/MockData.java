@@ -15,161 +15,183 @@ import java.util.List;
  * @since 2023-05-10
  */
 public class MockData extends BaseEntity {
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  /** 主键 */
-  private Long id;
+    /**
+     * 主键
+     */
+    private Long id;
 
-  /** mock规则配置表的id */
-  private String mockConfigId;
+    /**
+     * mock规则配置表的id
+     */
+    private String mockConfigId;
 
-  /** mock响应数据值 */
-  private String data;
+    /**
+     * mock响应数据值
+     */
+    private String data;
 
-  /** mock请求参数匹配规则 */
-  private String mockReqParams;
+    /**
+     * mock请求参数匹配规则
+     */
+    private String mockReqParams;
 
-  /** 根据jsonpath eval后的实际值 */
-  private String expectedValue;
+    /**
+     * 根据jsonpath eval后的实际值
+     */
+    private String expectedValue;
 
-  /** 超时时间 */
-  private Integer timeout;
+    /**
+     * 超时时间
+     */
+    private Integer timeout;
 
-  /** 服务名 */
-  private String interfaceName;
+    /**
+     * 服务名
+     */
+    private String interfaceName;
 
-  /** 方法名 */
-  private String methodName;
+    /**
+     * 方法名
+     */
+    private String methodName;
 
-  /** 创建时间 */
-  @JsonFormat(pattern = "yyyy-MM-dd")
-  private Date createdTime;
+    /**
+     * 创建时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date createdTime;
 
-  /** 更新时间 */
-  @JsonFormat(pattern = "yyyy-MM-dd")
-  private Date updatedTime;
+    /**
+     * 更新时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date updatedTime;
 
-  /** 是否启用 */
-  private Long enabled;
+    /**
+     * 是否启用
+     */
+    private Long enabled;
 
-  private String applicationName;
+    private String applicationName;
 
-  private List<MockExpression> mockExpressions;
+    private List<MockExpression> mockExpressions;
 
-  public List<MockExpression> getMockExpressions() {
-    return mockExpressions;
-  }
+    public List<MockExpression> getMockExpressions() {
+        return mockExpressions;
+    }
 
-  public void setMockExpressions(List<MockExpression> mockExpressions) {
-    this.mockExpressions = mockExpressions;
-  }
+    public void setMockExpressions(List<MockExpression> mockExpressions) {
+        this.mockExpressions = mockExpressions;
+    }
 
-  public String getApplicationName() {
-    return applicationName;
-  }
+    public String getApplicationName() {
+        return applicationName;
+    }
 
-  public void setApplicationName(String applicationName) {
-    this.applicationName = applicationName;
-  }
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
+    }
 
-  public Long getEnabled() {
-    return enabled;
-  }
+    public Long getEnabled() {
+        return enabled;
+    }
 
-  public void setEnabled(Long enabled) {
-    this.enabled = enabled;
-  }
+    public void setEnabled(Long enabled) {
+        this.enabled = enabled;
+    }
 
-  public String getInterfaceName() {
-    return interfaceName;
-  }
+    public String getInterfaceName() {
+        return interfaceName;
+    }
 
-  public void setInterfaceName(String interfaceName) {
-    this.interfaceName = interfaceName;
-  }
+    public void setInterfaceName(String interfaceName) {
+        this.interfaceName = interfaceName;
+    }
 
-  public String getMethodName() {
-    return methodName;
-  }
+    public String getMethodName() {
+        return methodName;
+    }
 
-  public void setMethodName(String methodName) {
-    this.methodName = methodName;
-  }
+    public void setMethodName(String methodName) {
+        this.methodName = methodName;
+    }
 
-  public String getExpectedValue() {
-    return expectedValue;
-  }
+    public String getExpectedValue() {
+        return expectedValue;
+    }
 
-  public void setExpectedValue(String expectedValue) {
-    this.expectedValue = expectedValue;
-  }
+    public void setExpectedValue(String expectedValue) {
+        this.expectedValue = expectedValue;
+    }
 
-  public Long getId() {
-    return id;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public String getData() {
-    return data;
-  }
+    public String getData() {
+        return data;
+    }
 
-  public void setData(String data) {
-    this.data = data;
-  }
+    public void setData(String data) {
+        this.data = data;
+    }
 
-  public String getMockConfigId() {
-    return mockConfigId;
-  }
+    public String getMockConfigId() {
+        return mockConfigId;
+    }
 
-  public void setMockConfigId(String mockConfigId) {
-    this.mockConfigId = mockConfigId;
-  }
+    public void setMockConfigId(String mockConfigId) {
+        this.mockConfigId = mockConfigId;
+    }
 
-  public String getMockReqParams() {
-    return mockReqParams;
-  }
+    public String getMockReqParams() {
+        return mockReqParams;
+    }
 
-  public void setMockReqParams(String mockReqParams) {
-    this.mockReqParams = mockReqParams;
-  }
+    public void setMockReqParams(String mockReqParams) {
+        this.mockReqParams = mockReqParams;
+    }
 
-  public Date getCreatedTime() {
-    return createdTime;
-  }
+    public Date getCreatedTime() {
+        return createdTime;
+    }
 
-  public void setCreatedTime(Date createdTime) {
-    this.createdTime = createdTime;
-  }
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
+    }
 
-  public Date getUpdatedTime() {
-    return updatedTime;
-  }
+    public Date getUpdatedTime() {
+        return updatedTime;
+    }
 
-  public void setUpdatedTime(Date updatedTime) {
-    this.updatedTime = updatedTime;
-  }
+    public void setUpdatedTime(Date updatedTime) {
+        this.updatedTime = updatedTime;
+    }
 
-  public Integer getTimeout() {
-    return timeout;
-  }
+    public Integer getTimeout() {
+        return timeout;
+    }
 
-  public void setTimeout(Integer timeout) {
-    this.timeout = timeout;
-  }
+    public void setTimeout(Integer timeout) {
+        this.timeout = timeout;
+    }
 
-  @Override
-  public String toString() {
-    return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-        .append("id", getId())
-        .append("data", getData())
-        .append("mockConfigId", getMockConfigId())
-        .append("mockReqParams", getMockReqParams())
-        .append("createdTime", getCreatedTime())
-        .append("updatedTime", getUpdatedTime())
-        .append("timeout", getTimeout())
-        .toString();
-  }
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+                .append("id", getId())
+                .append("data", getData())
+                .append("mockConfigId", getMockConfigId())
+                .append("mockReqParams", getMockReqParams())
+                .append("createdTime", getCreatedTime())
+                .append("updatedTime", getUpdatedTime())
+                .append("timeout", getTimeout())
+                .toString();
+    }
 }

@@ -1,8 +1,8 @@
 package io.github.lancelothuxi.mock.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.*;
 import io.github.lancelothuxi.mock.system.entity.RoleEntity;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 

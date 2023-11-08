@@ -1,8 +1,8 @@
 package io.github.lancelothuxi.mock.system.service.impl;
 
 import cn.dev33.satoken.stp.StpInterface;
-import lombok.AllArgsConstructor;
 import io.github.lancelothuxi.mock.system.service.IUserService;
+import lombok.AllArgsConstructor;
 import org.simple.utils.RedisUtil;
 import org.springframework.stereotype.Component;
 
@@ -29,9 +29,9 @@ public class StpInterfaceImpl implements StpInterface {
      */
     @Override
     public List<String> getPermissionList(Object loginId, String loginType) {
-        if(redisUtil.hasKey("sa-token-permission-"+loginId)){
-            return (List<String>)redisUtil.get("sa-token-permission-"+loginId);
-        }else{
+        if (redisUtil.hasKey("sa-token-permission-" + loginId)) {
+            return (List<String>) redisUtil.get("sa-token-permission-" + loginId);
+        } else {
             return new ArrayList<>();
         }
     }
@@ -41,9 +41,9 @@ public class StpInterfaceImpl implements StpInterface {
      */
     @Override
     public List<String> getRoleList(Object loginId, String loginType) {
-        if(redisUtil.hasKey("sa-token-role-"+loginId)){
-            return (List<String>)redisUtil.get("sa-token-role-"+loginId);
-        }else{
+        if (redisUtil.hasKey("sa-token-role-" + loginId)) {
+            return (List<String>) redisUtil.get("sa-token-role-" + loginId);
+        } else {
             return new ArrayList<>();
         }
     }

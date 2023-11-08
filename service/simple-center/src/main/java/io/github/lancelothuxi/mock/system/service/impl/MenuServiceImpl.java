@@ -6,11 +6,11 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import io.github.lancelothuxi.mock.system.mapper.MenuMapper;
-import io.github.lancelothuxi.mock.system.service.IMenuService;
 import io.github.lancelothuxi.mock.system.dto.menu.MenuQuery;
 import io.github.lancelothuxi.mock.system.dto.menu.MenuTreeDto;
 import io.github.lancelothuxi.mock.system.entity.MenuEntity;
+import io.github.lancelothuxi.mock.system.mapper.MenuMapper;
+import io.github.lancelothuxi.mock.system.service.IMenuService;
 import org.simple.utils.TreeUtil;
 import org.springframework.stereotype.Service;
 

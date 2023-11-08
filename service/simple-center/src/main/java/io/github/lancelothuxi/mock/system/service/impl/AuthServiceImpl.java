@@ -13,17 +13,17 @@ import cn.hutool.core.util.PageUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import com.wf.captcha.ArithmeticCaptcha;
+import io.github.lancelothuxi.mock.system.dto.auth.LoginParam;
+import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserDto;
+import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserQuery;
+import io.github.lancelothuxi.mock.system.entity.UserEntity;
 import io.github.lancelothuxi.mock.system.service.IAuthService;
+import io.github.lancelothuxi.mock.system.service.IUserService;
 import lombok.AllArgsConstructor;
 import org.simple.config.auth.AuthProperties;
 import org.simple.constant.RedisConst;
 import org.simple.enums.system.ResultCodeEnum;
 import org.simple.exception.CustomException;
-import io.github.lancelothuxi.mock.system.dto.auth.LoginParam;
-import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserDto;
-import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserQuery;
-import io.github.lancelothuxi.mock.system.entity.UserEntity;
-import io.github.lancelothuxi.mock.system.service.IUserService;
 import org.simple.utils.RedisUtil;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -72,12 +72,12 @@ public class AuthServiceImpl implements IAuthService {
         StpUtil.getSession().set("tenantId", userEntity.getTenant());
         StpUtil.getSession().set("device", loginParam.getDevice());
         // 将权限信息放入到redis中
-        List<String>  permissionList =
+        List<String> permissionList =
                 userService.getUserMenuAuth(userEntity.getId());
-        redisUtil.setObj("sa-token-permission-"+userEntity.getId(),permissionList);
+        redisUtil.setObj("sa-token-permission-" + userEntity.getId(), permissionList);
 
         List<String> roleList = userService.getUserRole(userEntity.getId());
-        redisUtil.setObj("sa-token-role-"+userEntity.getId(),roleList);
+        redisUtil.setObj("sa-token-role-" + userEntity.getId(), roleList);
         return token;
     }
 

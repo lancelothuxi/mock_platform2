@@ -2,14 +2,14 @@ package io.github.lancelothuxi.mock.system.controller;
 
 import cn.dev33.satoken.annotation.SaIgnore;
 import cn.dev33.satoken.stp.StpUtil;
+import io.github.lancelothuxi.mock.system.dto.auth.LoginParam;
+import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserDto;
+import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserQuery;
 import io.github.lancelothuxi.mock.system.service.IAuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.simple.dto.PageResult;
-import io.github.lancelothuxi.mock.system.dto.auth.LoginParam;
-import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserDto;
-import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserQuery;
 import org.simple.exception.CustomException;
 import org.springframework.web.bind.annotation.*;
 

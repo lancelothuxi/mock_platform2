@@ -1,8 +1,8 @@
 package io.github.lancelothuxi.mock.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import org.simple.dto.PageModel;
 import io.github.lancelothuxi.mock.system.entity.TenantEntity;
+import org.simple.dto.PageModel;
 
 import java.util.List;
 

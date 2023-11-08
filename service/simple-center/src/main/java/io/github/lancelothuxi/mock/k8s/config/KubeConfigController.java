@@ -7,32 +7,26 @@ import org.simple.utils.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 /**
  * k8s管理Controller
- * 
+ *
  * @author ruoyi
  * @date 2023-09-08
  */
 @Controller
 @RequestMapping("/k8s/config")
-public class KubeConfigController
-{
+public class KubeConfigController {
     private String prefix = "k8s/config";
 
     @Autowired
     private IKubeConfigService kubeConfigService;
 
     @GetMapping()
-    public String config()
-    {
+    public String config() {
         return prefix + "/config";
     }
 
@@ -41,30 +35,19 @@ public class KubeConfigController
      */
     @PostMapping("/list")
     @ResponseBody
-    public PageResult list(KubeConfig kubeConfig)
-    {
+    public PageResult list(KubeConfig kubeConfig) {
         List<KubeConfig> list = kubeConfigService.selectKubeConfigList(kubeConfig);
-        return getDataTable(list);
+        PageResult<KubeConfig> pageResult = new PageResult<>(list);
+        pageResult.setTotal(pageModel.getTotal());
+        return pageResult;
     }
 
-    /**
-     * 导出k8s管理列表
-     */
-    @PostMapping("/export")
-    @ResponseBody
-    public CommonResult export(KubeConfig kubeConfig)
-    {
-        List<KubeConfig> list = kubeConfigService.selectKubeConfigList(kubeConfig);
-        ExcelUtil<KubeConfig> util = new ExcelUtil<KubeConfig>(KubeConfig.class);
-        return util.exportExcel(list, "k8s管理数据");
-    }
 
     /**
      * 新增k8s管理
      */
     @GetMapping("/add")
-    public String add()
-    {
+    public String add() {
         return prefix + "/add";
     }
 
@@ -73,8 +56,7 @@ public class KubeConfigController
      */
     @PostMapping("/add")
     @ResponseBody
-    public CommonResult addSave(KubeConfig kubeConfig)
-    {
+    public CommonResult addSave(KubeConfig kubeConfig) {
         return toAjax(kubeConfigService.insertKubeConfig(kubeConfig));
     }
 
@@ -82,8 +64,7 @@ public class KubeConfigController
      * 修改k8s管理
      */
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable("id") Long id, ModelMap mmap)
-    {
+    public String edit(@PathVariable("id") Long id, ModelMap mmap) {
         KubeConfig kubeConfig = kubeConfigService.selectKubeConfigById(id);
         mmap.put("kubeConfig", kubeConfig);
         return prefix + "/edit";
@@ -94,18 +75,16 @@ public class KubeConfigController
      */
     @PostMapping("/edit")
     @ResponseBody
-    public CommonResult editSave(KubeConfig kubeConfig)
-    {
+    public CommonResult editSave(KubeConfig kubeConfig) {
         return toAjax(kubeConfigService.updateKubeConfig(kubeConfig));
     }
 
     /**
      * 删除k8s管理
      */
-    @PostMapping( "/remove")
+    @PostMapping("/remove")
     @ResponseBody
-    public CommonResult remove(String ids)
-    {
+    public CommonResult remove(String ids) {
         return toAjax(kubeConfigService.deleteKubeConfigByIds(ids));
     }
 }

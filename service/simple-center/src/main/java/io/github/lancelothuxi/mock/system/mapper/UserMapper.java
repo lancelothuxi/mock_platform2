@@ -2,11 +2,11 @@ package io.github.lancelothuxi.mock.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
-import org.apache.ibatis.annotations.*;
 import io.github.lancelothuxi.mock.system.dto.user.UserEntityDto;
 import io.github.lancelothuxi.mock.system.dto.user.UserQuery;
 import io.github.lancelothuxi.mock.system.entity.MenuEntity;
 import io.github.lancelothuxi.mock.system.entity.UserEntity;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 

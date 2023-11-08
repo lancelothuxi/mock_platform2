@@ -1,9 +1,9 @@
 package io.github.lancelothuxi.mock.system.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.github.lancelothuxi.mock.system.entity.UserEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import io.github.lancelothuxi.mock.system.entity.UserEntity;
 
 /**
  * UserDto

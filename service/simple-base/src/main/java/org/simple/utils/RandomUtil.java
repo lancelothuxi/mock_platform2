@@ -65,7 +65,6 @@ public class RandomUtil {
     }
 
 
-
     /**
      * 获取商户编号/机构id
      */

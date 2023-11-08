@@ -3,15 +3,15 @@ package io.github.lancelothuxi.mock.system.controller;
 import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.annotation.SaMode;
 import com.github.yitter.idgen.YitIdHelper;
+import io.github.lancelothuxi.mock.system.dto.role.RoleQuery;
+import io.github.lancelothuxi.mock.system.entity.RoleEntity;
+import io.github.lancelothuxi.mock.system.entity.RoleMenuEntity;
 import io.github.lancelothuxi.mock.system.service.IRoleService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.simple.dto.IdsModel;
 import org.simple.dto.PageResult;
-import io.github.lancelothuxi.mock.system.dto.role.RoleQuery;
-import io.github.lancelothuxi.mock.system.entity.RoleEntity;
-import io.github.lancelothuxi.mock.system.entity.RoleMenuEntity;
 import org.simple.exception.CustomException;
 import org.springframework.web.bind.annotation.*;
 

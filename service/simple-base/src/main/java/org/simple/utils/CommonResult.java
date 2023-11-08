@@ -38,8 +38,9 @@ public class CommonResult<T> {
 
 
     public static <T> CommonResult<T> success() {
-        return new CommonResult<T>(ResultCodeEnum.SUCCESS.getCode(), ResultCodeEnum.SUCCESS.getMsg(),null);
+        return new CommonResult<T>(ResultCodeEnum.SUCCESS.getCode(), ResultCodeEnum.SUCCESS.getMsg(), null);
     }
+
     /**
      * 成功返回结果
      *
