@@ -1,6 +1,8 @@
 package io.github.lancelothuxi.mock.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import io.github.lancelothuxi.mock.domain.MockData;
+import io.github.lancelothuxi.mock.mock.dto.MockDataQuery;
 
 import java.util.List;
 
@@ -10,7 +12,7 @@ import java.util.List;
  * @author lancelot huxisuz@gmail.com
  * @since 2023-05-10
  */
-public interface IMockDataService {
+public interface IMockDataService extends IService<MockData> {
     /**
      * 查询mock配置关联响应数据
      *
@@ -25,45 +27,8 @@ public interface IMockDataService {
      * @param mockData mock配置关联响应数据
      * @return mock配置关联响应数据集合
      */
-    public List<MockData> selectMockDataList(MockData mockData);
+    public List<MockData> queryForPage(MockDataQuery mockDataQuery);
 
-    /**
-     * 新增mock配置关联响应数据
-     *
-     * @param mockData mock配置关联响应数据
-     * @return 结果
-     */
-    public int insertMockData(MockData mockData);
+    List<MockData> selectByConfigId(Long configId);
 
-    /**
-     * 修改mock配置关联响应数据
-     *
-     * @param mockData mock配置关联响应数据
-     * @return 结果
-     */
-    public int updateMockData(MockData mockData);
-
-    /**
-     * 批量删除mock配置关联响应数据
-     *
-     * @param ids 需要删除的mock配置关联响应数据主键集合
-     * @return 结果
-     */
-    public int deleteMockDataByIds(String ids);
-
-    /**
-     * 删除mock配置关联响应数据信息
-     *
-     * @param id mock配置关联响应数据主键
-     * @return 结果
-     */
-    public int deleteMockDataById(Long id);
-
-    List<MockData> selectListByConfigList(List<String> ids);
-
-    List<MockData> selectByConfigId(String configId);
-
-    void importMockData(List<MockData> mockDatas, String mockConfigId);
-
-    void batchUpdateMockDelayTimeByMockId(String mockConfigId, Integer timeout);
 }

@@ -33,7 +33,7 @@ public class GlobalResultHandler implements ResponseBodyAdvice<Object> {
      * @param aClass          http消息转化类
      */
     @Override
-    public boolean supports(MethodParameter methodParameter, @Nonnull Class<? extends HttpMessageConverter<?>> aClass) {
+    public boolean supports(MethodParameter methodParameter,  Class<? extends HttpMessageConverter<?>> aClass) {
         /* 排除swagger自带的内容 */
         return !methodParameter.getDeclaringClass().getName().contains("springdoc");
     }
@@ -44,7 +44,7 @@ public class GlobalResultHandler implements ResponseBodyAdvice<Object> {
      * @param body 返回的内容体
      */
     @Override
-    public Object beforeBodyWrite(Object body, @Nonnull MethodParameter methodParameter, @Nonnull MediaType mediaType, @Nonnull Class<? extends HttpMessageConverter<?>> aClass, @Nonnull ServerHttpRequest serverHttpRequest, @Nonnull ServerHttpResponse serverHttpResponse) {
+    public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, @Nonnull ServerHttpRequest serverHttpRequest, @Nonnull ServerHttpResponse serverHttpResponse) {
         /* 防止返回类型不是包装类型，但是抛出异常，被处理成包装类型 */
         if (body instanceof CommonResult) {
             return body;

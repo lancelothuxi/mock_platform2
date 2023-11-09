@@ -1,12 +1,19 @@
 package io.github.lancelothuxi.mock.service.impl;
 
+import cn.hutool.core.convert.Convert;
+import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.github.lancelothuxi.mock.domain.KubeConfig;
+import io.github.lancelothuxi.mock.k8s.dto.KubeConfigQuery;
 import io.github.lancelothuxi.mock.mapper.KubeConfigMapper;
 import io.github.lancelothuxi.mock.service.IKubeConfigService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * k8s管理Service业务层处理
@@ -15,73 +22,19 @@ import java.util.List;
  * @date 2023-09-08
  */
 @Service
-public class KubeConfigServiceImpl implements IKubeConfigService {
-    @Autowired
-    private KubeConfigMapper kubeConfigMapper;
+public class KubeConfigServiceImpl extends ServiceImpl<KubeConfigMapper, KubeConfig> implements IKubeConfigService  {
 
-    /**
-     * 查询k8s管理
-     *
-     * @param id k8s管理主键
-     * @return k8s管理
-     */
     @Override
-    public KubeConfig selectKubeConfigById(Long id) {
-        return kubeConfigMapper.selectKubeConfigById(id);
-    }
-
-    /**
-     * 查询k8s管理列表
-     *
-     * @param kubeConfig k8s管理
-     * @return k8s管理
-     */
-    @Override
-    public List<KubeConfig> selectKubeConfigList(KubeConfig kubeConfig) {
-        return kubeConfigMapper.selectKubeConfigList(kubeConfig);
-    }
-
-    /**
-     * 新增k8s管理
-     *
-     * @param kubeConfig k8s管理
-     * @return 结果
-     */
-    @Override
-    public int insertKubeConfig(KubeConfig kubeConfig) {
-        kubeConfig.setCreateTime(DateUtils.getNowDate());
-        return kubeConfigMapper.insertKubeConfig(kubeConfig);
-    }
-
-    /**
-     * 修改k8s管理
-     * @param kubeConfig k8s管理
-     * @return 结果
-     */
-    @Override
-    public int updateKubeConfig(KubeConfig kubeConfig) {
-        kubeConfig.setUpdateTime(DateUtils.getNowDate());
-        return kubeConfigMapper.updateKubeConfig(kubeConfig);
-    }
-
-    /**
-     * 批量删除k8s管理
-     * @param ids 需要删除的k8s管理主键
-     * @return 结果
-     */
-    @Override
-    public int deleteKubeConfigByIds(String ids) {
-        return kubeConfigMapper.deleteKubeConfigByIds(Convert.toStrArray(ids));
-    }
-
-    /**
-     * 删除k8s管理信息
-     *
-     * @param id k8s管理主键
-     * @return 结果
-     */
-    @Override
-    public int deleteKubeConfigById(Long id) {
-        return kubeConfigMapper.deleteKubeConfigById(id);
+    public List<KubeConfig> queryForPage(KubeConfigQuery query) {
+        LambdaQueryWrapper<KubeConfig> queryWrapper = new LambdaQueryWrapper<>();
+        if (StrUtil.isNotEmpty(query.getName())) {
+            queryWrapper.like(KubeConfig::getName, query.getName());
+        }
+        if (Objects.nonNull(query.getIsValid())) {
+            queryWrapper.eq(KubeConfig::getIsValid, query.getIsValid());
+        }
+        Page<KubeConfig> page = new Page<>(query.getCurrent(), query.getPageSize());
+        IPage<KubeConfig> iPage = this.page(page, queryWrapper);
+        return query.setList(iPage.getRecords(), page.getTotal());
     }
 }

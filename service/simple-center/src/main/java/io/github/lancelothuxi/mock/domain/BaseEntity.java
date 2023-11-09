@@ -1,5 +1,7 @@
 package io.github.lancelothuxi.mock.domain;
 
-public class BaseEntity {
+import java.io.Serializable;
+
+public class BaseEntity implements Serializable {
 
 }

@@ -1,7 +1,12 @@
 package io.github.lancelothuxi.mock.k8s.config;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
+import cn.dev33.satoken.annotation.SaMode;
 import io.github.lancelothuxi.mock.domain.KubeConfig;
+import io.github.lancelothuxi.mock.k8s.dto.KubeConfigQuery;
 import io.github.lancelothuxi.mock.service.IKubeConfigService;
+import io.swagger.v3.oas.annotations.Operation;
+import org.simple.constant.CommonConst;
 import org.simple.dto.PageResult;
 import org.simple.utils.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +40,10 @@ public class KubeConfigController {
      */
     @PostMapping("/list")
     @ResponseBody
-    public PageResult list(KubeConfig kubeConfig) {
-        List<KubeConfig> list = kubeConfigService.selectKubeConfigList(kubeConfig);
+    public PageResult<KubeConfig> list(KubeConfigQuery kubeConfigQuery) {
+        List<KubeConfig> list = kubeConfigService.queryForPage(kubeConfigQuery);
         PageResult<KubeConfig> pageResult = new PageResult<>(list);
-        pageResult.setTotal(pageModel.getTotal());
+        pageResult.setTotal(kubeConfigQuery.getTotal());
         return pageResult;
     }
 
@@ -57,7 +62,8 @@ public class KubeConfigController {
     @PostMapping("/add")
     @ResponseBody
     public CommonResult addSave(KubeConfig kubeConfig) {
-        return toAjax(kubeConfigService.insertKubeConfig(kubeConfig));
+        kubeConfigService.save(kubeConfig);
+        return CommonResult.success();
     }
 
     /**
@@ -65,7 +71,7 @@ public class KubeConfigController {
      */
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id, ModelMap mmap) {
-        KubeConfig kubeConfig = kubeConfigService.selectKubeConfigById(id);
+        KubeConfig kubeConfig = kubeConfigService.getById(id);
         mmap.put("kubeConfig", kubeConfig);
         return prefix + "/edit";
     }
@@ -76,15 +82,13 @@ public class KubeConfigController {
     @PostMapping("/edit")
     @ResponseBody
     public CommonResult editSave(KubeConfig kubeConfig) {
-        return toAjax(kubeConfigService.updateKubeConfig(kubeConfig));
+        kubeConfigService.updateById(kubeConfig);
+        return CommonResult.success();
     }
 
-    /**
-     * 删除k8s管理
-     */
-    @PostMapping("/remove")
-    @ResponseBody
-    public CommonResult remove(String ids) {
-        return toAjax(kubeConfigService.deleteKubeConfigByIds(ids));
+
+    @PostMapping("remove/{id}")
+    public CommonResult remove(@PathVariable("id") Long id) {
+        return CommonResult.success(kubeConfigService.removeById(id));
     }
 }

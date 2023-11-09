@@ -2,6 +2,7 @@ package io.github.lancelothuxi.mock.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.github.lancelothuxi.mock.mock.MockExpression;
+import lombok.Data;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * @author lancelot huxisuz@gmail.com
  * @since 2023-05-10
  */
+@Data
 public class MockData extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
@@ -25,7 +27,7 @@ public class MockData extends BaseEntity {
     /**
      * mock规则配置表的id
      */
-    private String mockConfigId;
+    private Long mockConfigId;
 
     /**
      * mock响应数据值
@@ -77,121 +79,4 @@ public class MockData extends BaseEntity {
     private String applicationName;
 
     private List<MockExpression> mockExpressions;
-
-    public List<MockExpression> getMockExpressions() {
-        return mockExpressions;
-    }
-
-    public void setMockExpressions(List<MockExpression> mockExpressions) {
-        this.mockExpressions = mockExpressions;
-    }
-
-    public String getApplicationName() {
-        return applicationName;
-    }
-
-    public void setApplicationName(String applicationName) {
-        this.applicationName = applicationName;
-    }
-
-    public Long getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Long enabled) {
-        this.enabled = enabled;
-    }
-
-    public String getInterfaceName() {
-        return interfaceName;
-    }
-
-    public void setInterfaceName(String interfaceName) {
-        this.interfaceName = interfaceName;
-    }
-
-    public String getMethodName() {
-        return methodName;
-    }
-
-    public void setMethodName(String methodName) {
-        this.methodName = methodName;
-    }
-
-    public String getExpectedValue() {
-        return expectedValue;
-    }
-
-    public void setExpectedValue(String expectedValue) {
-        this.expectedValue = expectedValue;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public String getMockConfigId() {
-        return mockConfigId;
-    }
-
-    public void setMockConfigId(String mockConfigId) {
-        this.mockConfigId = mockConfigId;
-    }
-
-    public String getMockReqParams() {
-        return mockReqParams;
-    }
-
-    public void setMockReqParams(String mockReqParams) {
-        this.mockReqParams = mockReqParams;
-    }
-
-    public Date getCreatedTime() {
-        return createdTime;
-    }
-
-    public void setCreatedTime(Date createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public Date getUpdatedTime() {
-        return updatedTime;
-    }
-
-    public void setUpdatedTime(Date updatedTime) {
-        this.updatedTime = updatedTime;
-    }
-
-    public Integer getTimeout() {
-        return timeout;
-    }
-
-    public void setTimeout(Integer timeout) {
-        this.timeout = timeout;
-    }
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("id", getId())
-                .append("data", getData())
-                .append("mockConfigId", getMockConfigId())
-                .append("mockReqParams", getMockReqParams())
-                .append("createdTime", getCreatedTime())
-                .append("updatedTime", getUpdatedTime())
-                .append("timeout", getTimeout())
-                .toString();
-    }
 }

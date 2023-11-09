@@ -1,6 +1,7 @@
 package io.github.lancelothuxi.mock.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.github.lancelothuxi.mock.cache.LocalCache;
 import io.github.lancelothuxi.mock.common.core.text.Convert;
 import io.github.lancelothuxi.mock.common.utils.StringUtils;
@@ -8,6 +9,7 @@ import io.github.lancelothuxi.mock.domain.MockConfig;
 import io.github.lancelothuxi.mock.domain.MockData;
 import io.github.lancelothuxi.mock.mapper.MockDataMapper;
 import io.github.lancelothuxi.mock.mock.MockExpression;
+import io.github.lancelothuxi.mock.mock.dto.MockDataQuery;
 import io.github.lancelothuxi.mock.service.IMockConfigService;
 import io.github.lancelothuxi.mock.service.IMockDataService;
 import org.apache.commons.collections4.CollectionUtils;
@@ -28,7 +30,7 @@ import java.util.List;
  * @since 2023-05-10
  */
 @Service
-public class MockDataServiceImpl implements IMockDataService {
+public class MockDataServiceImpl extends ServiceImpl<MockDataMapper,MockData> implements IMockDataService {
 
     private static Logger logger = LoggerFactory.getLogger(MockDataServiceImpl.class);
     @Autowired
@@ -51,13 +53,22 @@ public class MockDataServiceImpl implements IMockDataService {
         return mockDataMapper.selectMockDataById(id);
     }
 
+    @Override
+    public List<MockData> queryForPage(MockDataQuery mockDataQuery) {
+        return null;
+    }
+
+    @Override
+    public List<MockData> selectByConfigId(Long configId) {
+        return null;
+    }
+
     /**
      * 查询mock配置关联响应数据列表
      *
      * @param mockData mock配置关联响应数据
      * @return mock配置关联响应数据
      */
-    @Override
     public List<MockData> selectMockDataList(MockData mockData) {
         return mockDataMapper.selectMockDataList(mockData);
     }
@@ -68,7 +79,6 @@ public class MockDataServiceImpl implements IMockDataService {
      * @param mockData mock配置关联响应数据
      * @return 结果
      */
-    @Override
     public int insertMockData(MockData mockData) {
 
         int insertMockData = mockDataMapper.insertMockData(mockData);
@@ -87,7 +97,6 @@ public class MockDataServiceImpl implements IMockDataService {
      * @param mockData mock配置关联响应数据
      * @return 结果
      */
-    @Override
     public int updateMockData(MockData mockData) {
 
         int updateMockData = mockDataMapper.updateMockData(mockData);
@@ -106,7 +115,6 @@ public class MockDataServiceImpl implements IMockDataService {
      * @param ids 需要删除的mock配置关联响应数据主键
      * @return 结果
      */
-    @Override
     public int deleteMockDataByIds(String ids) {
 
         String[] array = Convert.toStrArray(ids);
@@ -126,7 +134,6 @@ public class MockDataServiceImpl implements IMockDataService {
      * @param id mock配置关联响应数据主键
      * @return 结果
      */
-    @Override
     public int deleteMockDataById(Long id) {
 
         MockData mockDataById = selectMockDataById(Long.valueOf(id));
@@ -138,7 +145,6 @@ public class MockDataServiceImpl implements IMockDataService {
         return 1;
     }
 
-    @Override
     public List<MockData> selectListByConfigList(List<String> ids) {
         if (CollectionUtils.isEmpty(ids)) {
             return new ArrayList<>();
@@ -146,7 +152,6 @@ public class MockDataServiceImpl implements IMockDataService {
         return mockDataMapper.selectListByConfigList(ids);
     }
 
-    @Override
     public List<MockData> selectByConfigId(String configId) {
         List<MockData> mockDataList = mockDataMapper.selectByConfigId(configId);
         for (MockData mockData : mockDataList) {
@@ -170,7 +175,6 @@ public class MockDataServiceImpl implements IMockDataService {
         return mockDataList;
     }
 
-    @Override
     public void importMockData(List<MockData> mockDatas, String mockConfigId) {
         if (mockDatas == null || mockDatas.size() == 0) {
             return;
@@ -183,7 +187,6 @@ public class MockDataServiceImpl implements IMockDataService {
         }
     }
 
-    @Override
     public void batchUpdateMockDelayTimeByMockId(String mockConfigId, Integer timeout) {
         mockDataMapper.batchUpdateMockDelayTimeByMockId(mockConfigId, timeout);
     }

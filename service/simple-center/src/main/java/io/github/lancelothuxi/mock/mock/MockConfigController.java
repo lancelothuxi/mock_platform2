@@ -4,14 +4,11 @@ import com.alibaba.fastjson.JSON;
 import io.github.lancelothuxi.mock.api.CommonDubboMockService;
 import io.github.lancelothuxi.mock.api.MockRequest;
 import io.github.lancelothuxi.mock.api.MockResponse;
-import io.github.lancelothuxi.mock.common.annotation.Log;
-import io.github.lancelothuxi.mock.common.core.domain.AjaxResult;
-import io.github.lancelothuxi.mock.common.core.text.Convert;
-import io.github.lancelothuxi.mock.common.enums.BusinessType;
 import io.github.lancelothuxi.mock.domain.MockConfig;
 import io.github.lancelothuxi.mock.service.IMockConfigService;
 import io.github.lancelothuxi.mock.service.IMockDataService;
 import org.simple.dto.PageResult;
+import org.simple.utils.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -72,7 +69,6 @@ public class MockConfigController {
     /**
      * 新增保存服务mock方法
      */
-    @Log(title = "服务mock方法", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
     public AjaxResult addSave(MockConfig MockConfig) {
@@ -185,8 +181,9 @@ public class MockConfigController {
      */
     @PostMapping("/changEnable")
     @ResponseBody
-    public AjaxResult changEnable(MockConfig mockConfig) {
-        return success(mockConfigService.updateMockConfig(mockConfig));
+    public CommonResult changEnable(MockConfig mockConfig) {
+        mockConfigService.updateById(mockConfig);
+        return CommonResult.success();
     }
 
     /**
