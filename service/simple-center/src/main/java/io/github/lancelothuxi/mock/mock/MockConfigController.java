@@ -5,6 +5,7 @@ import io.github.lancelothuxi.mock.api.CommonDubboMockService;
 import io.github.lancelothuxi.mock.api.MockRequest;
 import io.github.lancelothuxi.mock.api.MockResponse;
 import io.github.lancelothuxi.mock.domain.MockConfig;
+import io.github.lancelothuxi.mock.mock.dto.MockConfigQuery;
 import io.github.lancelothuxi.mock.service.IMockConfigService;
 import io.github.lancelothuxi.mock.service.IMockDataService;
 import org.simple.dto.PageResult;
@@ -50,9 +51,8 @@ public class MockConfigController {
      */
     @PostMapping("/list")
     @ResponseBody
-    public PageResult<MockConfig> list(MockConfig MockConfig) {
-        List<MockConfig> list =
-                mockConfigService.fuzzlySelectMockConfigList(MockConfig);
+    public PageResult<MockConfig> list(MockConfigQuery mockConfigQuery) {
+        List<MockConfig> list = mockConfigService.queryForPage(mockConfigQuery);
         PageResult<MockConfig> pageResult = new PageResult<>(list);
         pageResult.setTotal(list);
         return pageResult;
@@ -186,12 +186,4 @@ public class MockConfigController {
         return CommonResult.success();
     }
 
-    /**
-     * 查询服务mock方法列表
-     */
-    @PostMapping("/directMatchSwitch")
-    @ResponseBody
-    public AjaxResult directMatchSwitch(MockConfig mockConfig) {
-        return success(mockConfigService.updateMockConfig(mockConfig));
-    }
 }

@@ -4,9 +4,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.github.lancelothuxi.mock.cache.LocalCache;
 import io.github.lancelothuxi.mock.domain.MockConfig;
 import io.github.lancelothuxi.mock.mapper.MockConfigMapper;
+import io.github.lancelothuxi.mock.mock.dto.MockConfigQuery;
 import io.github.lancelothuxi.mock.service.IMockConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 /**
@@ -26,5 +29,11 @@ public class MockConfigServiceImpl extends ServiceImpl<MockConfigMapper,MockConf
         MockConfig real = this.getById(entity);
         localCache.mockConfigUpdate(real);
         return super.updateById(entity);
+    }
+
+    @Override
+    public List<MockConfig> queryForPage(MockConfigQuery mockConfigQuery) {
+
+
     }
 }
