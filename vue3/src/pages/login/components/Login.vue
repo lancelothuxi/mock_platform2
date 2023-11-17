@@ -33,21 +33,6 @@
             </template>
           </t-input>
         </t-form-item>
-        <transition name="fade" mode="out-in">
-          <t-form-item v-if="formData.password && formData.userName" name="code">
-            <t-input v-model.trim="formData.code" size="large" placeholder="请输入验证码">
-              <template #prefix-icon>
-                <t-icon name="mail" />
-              </template>
-            </t-input>
-            <img
-              v-if="codeImg"
-              :src="codeImg"
-              style="width: 120px; height: 35px; margin-left: 10px"
-              @click="getImgCode"
-            />
-          </t-form-item>
-        </transition>
         <div class="check-container remember-pwd">
           <!-- <t-checkbox>记住账号</t-checkbox> -->
           <!-- <span class="tip">忘记账号？</span> -->
@@ -186,16 +171,6 @@ const switchType = (val: string) => {
 
 const router = useRouter();
 
-// 获取验证码
-const getImgCode = async () => {
-  const sp = String(Math.random() * 23);
-  formData.value.sp = sp;
-  codeImg.value = `${proxy[env].host}/center/system/auth/getCode?sp=${sp}`;
-};
-
-onMounted(async () => {
-  await getImgCode();
-});
 
 const isLoad = ref(false);
 const onSubmit = async ({ validateResult }) => {

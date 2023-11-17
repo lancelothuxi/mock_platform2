@@ -1,6 +1,5 @@
 package io.github.lancelothuxi.mock.mock;
 
-import io.github.lancelothuxi.mock.cache.LocalCache;
 import io.github.lancelothuxi.mock.domain.MockConfig;
 import io.github.lancelothuxi.mock.domain.MockData;
 import io.github.lancelothuxi.mock.functions.CompoundVariable;
@@ -19,7 +18,6 @@ import java.util.List;
 
 /**
  * mock配置关联响应数据Controller
- *
  * @author lancelot huxisuz@gmail.com
  * @since 2023-05-10
  */
@@ -34,8 +32,6 @@ public class MockDataController {
     @Autowired
     private IMockConfigService mockConfigService;
 
-    @Autowired
-    private LocalCache localCache;
 
     @GetMapping()
     public String data(MockData mockData, ModelMap modelMap) {
@@ -54,10 +50,11 @@ public class MockDataController {
         if (list != null) {
             for (MockData data : list) {
                 data.setApplicationName(mockConfig.getAppliactionName());
-                data.setMockConfigId(mockData.getMockConfigId());
             }
         }
-        return getDataTable(list);
+        PageResult<MockData> pageResult = new PageResult<>(list);
+        pageResult.setTotal(pageResult.getTotal());
+        return pageResult;
     }
 
 
@@ -88,7 +85,7 @@ public class MockDataController {
         } catch (Exception ex) {
             return CommonResult.failed("非法的函数：" + ex.getMessage());
         }
-        mockDataService.insertMockData(mockData);
+        mockDataService.save(mockData);
         return CommonResult.success();
     }
 
@@ -118,7 +115,7 @@ public class MockDataController {
         } catch (Exception ex) {
             return CommonResult.failed("非法的函数：" + ex.getMessage());
         }
-        mockDataService.updateMockData(mockData);
+        mockDataService.updateById(mockData);
         return CommonResult.success();
     }
 
@@ -127,15 +124,15 @@ public class MockDataController {
      */
     @PostMapping("/remove")
     @ResponseBody
-    public CommonResult remove(String ids) {
-        mockDataService.deleteMockDataByIds(ids);
+    public CommonResult remove(Long id) {
+        mockDataService.removeById(id);
         return CommonResult.success();
     }
 
     @PostMapping("/changEnable")
     @ResponseBody
     public CommonResult changEnable(MockData mockData) {
-        mockDataService.updateMockData(mockData);
+        mockDataService.updateById(mockData);
         return CommonResult.success();
     }
 }

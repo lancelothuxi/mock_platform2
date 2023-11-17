@@ -5,22 +5,14 @@
       <div class="title-container">
         <h1 class="title margin-no"></h1>
         <h1 class="title"></h1>
-        <!-- <div class="sub-title">
-          <p class="tip">{{ type == 'register' ? '已有账号?' : '没有账号吗?' }}</p>
-          <p class="tip" @click="switchType(type == 'register' ? 'login' : 'register')">
-            {{ type == 'register' ? '登录' : '注册新账号' }}
-          </p>
-        </div> -->
       </div>
-
       <login v-if="type === 'login'" />
       <register v-else @register-success="switchType('login')" />
       <tdesign-setting />
     </div>
 
     <footer class="copyright">
-      © 2020-2022 FrSimple. All Rights Reserved .
-      <a class="beian" href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2022018704号</a>
+      <a class="beian" href="https://github.com/lancelothuxi/mock-platform" target="_blank"> <b>Vist Github</b></a>
     </footer>
   </div>
 </template>

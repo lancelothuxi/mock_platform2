@@ -3,10 +3,10 @@ package io.github.lancelothuxi.mock.mock;
 import com.alibaba.fastjson.JSON;
 import io.github.lancelothuxi.mock.api.MockRequest;
 import io.github.lancelothuxi.mock.api.MockResponse;
-import io.github.lancelothuxi.mock.cache.LocalCache;
 import io.github.lancelothuxi.mock.domain.MockConfig;
 import io.github.lancelothuxi.mock.domain.MockData;
 import io.github.lancelothuxi.mock.functions.CompoundVariable;
+import io.github.lancelothuxi.mock.service.IMockConfigService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,9 +21,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class CommonMockService {
 
-    private static Logger logger = LoggerFactory.getLogger(CommonMockService.class);
     @Autowired
-    private LocalCache localCache;
+    private IMockConfigService mockConfigService;
+
+    private static Logger logger = LoggerFactory.getLogger(CommonMockService.class);
 
     public MockResponse doMockRequest(MockRequest mockRequest) {
 
@@ -48,7 +49,7 @@ public class CommonMockService {
             request.setEnabled("1");
 
             // 查询配置
-            MockConfig mockConfig = localCache.getMockConfigWithCache(request);
+            MockConfig mockConfig = mockConfigService.getById(request);
             if (mockConfig == null) {
                 if (logger.isDebugEnabled()) {
                     logger.debug(

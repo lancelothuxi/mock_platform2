@@ -1,38 +1,9 @@
 <template>
   <header class="login-header">
     <div style="display: flex">
-      <tLogo class="tdesign-starter-side-nav-logo-t-logo1" />
-      <h2 class="tdesign-starter-side-nav-logo-tdesign-logo1">FrSimpleBoot</h2>
+      <h2 class="tdesign-starter-side-nav-logo-tdesign-logo1">Mock Platform</h2>
     </div>
     <div class="operations-container">
-      <!-- <t-button theme="default" shape="square" variant="text" @click="navToGitHub">
-        <t-icon name="logo-github" class="icon" />
-      </t-button> -->
-      <!-- <t-button theme="default" shape="square" variant="text" @click="navToHelper">
-        <t-icon name="help-circle" class="icon" />
-      </t-button>
-       -->
-      <!-- <t-popup class="placement bottom center" placement="bottom" show-arrow destroy-on-close>
-        <template #content>
-          <div style="display: flex; flex-direction: column; text-align: center; color: red">
-            <span>联系作者</span>
-            <img
-              style="width: 200px; heigth: 200px"
-              src="https://pengpengyu-test.oss-cn-zhangjiakou.aliyuncs.com/image/3101656383387_.pic.jpg"
-            />
-          </div>
-        </template>
-        <t-button theme="default" shape="square" variant="text">
-          <t-icon name="logo-github" class="icon" />
-        </t-button>
-      </t-popup> -->
-      <!-- <t-button theme="default" variant="text" @click="goQQ()">
-        <t-icon name="logo-github" class="icon" />
-        获取源码
-      </t-button> -->
-      <t-button theme="default" shape="square" variant="text" @click="toggleSettingPanel">
-        <t-icon name="setting" class="icon" />
-      </t-button>
     </div>
   </header>
 </template>

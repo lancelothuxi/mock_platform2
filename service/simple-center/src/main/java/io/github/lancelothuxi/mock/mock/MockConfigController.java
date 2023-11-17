@@ -1,13 +1,14 @@
 package io.github.lancelothuxi.mock.mock;
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import io.github.lancelothuxi.mock.api.CommonDubboMockService;
 import io.github.lancelothuxi.mock.api.MockRequest;
 import io.github.lancelothuxi.mock.api.MockResponse;
 import io.github.lancelothuxi.mock.domain.MockConfig;
 import io.github.lancelothuxi.mock.mock.dto.MockConfigQuery;
 import io.github.lancelothuxi.mock.service.IMockConfigService;
-import io.github.lancelothuxi.mock.service.IMockDataService;
+import lombok.extern.slf4j.Slf4j;
 import org.simple.dto.PageResult;
 import org.simple.utils.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,14 +29,12 @@ import static org.apache.commons.lang.ObjectUtils.defaultIfNull;
  */
 @Controller
 @RequestMapping("/mock/dubbo/config")
+@Slf4j
 public class MockConfigController {
     private String prefix = "mock/dubbo/config";
 
     @Autowired
     private IMockConfigService mockConfigService;
-
-    @Autowired
-    private IMockDataService mockDataService;
 
     @Autowired
     private CommonDubboMockService commonDubboMockService;
@@ -54,16 +53,8 @@ public class MockConfigController {
     public PageResult<MockConfig> list(MockConfigQuery mockConfigQuery) {
         List<MockConfig> list = mockConfigService.queryForPage(mockConfigQuery);
         PageResult<MockConfig> pageResult = new PageResult<>(list);
-        pageResult.setTotal(list);
+        pageResult.setTotal(pageResult.getTotal());
         return pageResult;
-    }
-
-    /**
-     * 新增服务mock方法
-     */
-    @GetMapping("/add")
-    public String add() {
-        return prefix + "/add";
     }
 
     /**
@@ -71,99 +62,61 @@ public class MockConfigController {
      */
     @PostMapping("/add")
     @ResponseBody
-    public AjaxResult addSave(MockConfig MockConfig) {
-        return success(mockConfigService.insertMockConfig(MockConfig));
+    public CommonResult addSave(MockConfig mockConfig) {
+        mockConfigService.save(mockConfig);
+        return CommonResult.success();
     }
 
-    /**
-     * 修改服务mock方法
-     */
-    @GetMapping("/edit/{id}")
-    public String edit(@PathVariable("id") Long id, ModelMap mmap) {
-        MockConfig MockConfig = mockConfigService.selectMockConfigById(id);
-        mmap.put("mockConfig", MockConfig);
-        return prefix + "/edit";
-    }
 
     /**
      * 修改保存服务mock方法
      */
-    @Log(title = "服务mock方法", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
-    public AjaxResult editSave(MockConfig MockConfig) {
-        return toAjax(mockConfigService.updateMockConfig(MockConfig));
+    public CommonResult editSave(MockConfig mockConfig) {
+        mockConfigService.updateById(mockConfig);
+        return CommonResult.success();
     }
 
     /**
      * 删除服务mock方法
      */
-    @Log(title = "服务mock方法", businessType = BusinessType.DELETE)
     @PostMapping("/remove")
     @ResponseBody
-    public AjaxResult remove(String ids) {
-        return toAjax(mockConfigService.deleteMockConfigByIds(ids));
+    public CommonResult remove(Long id) {
+        mockConfigService.removeById(id);
+        return CommonResult.success();
     }
 
-    @PostMapping("/batchOpen")
-    @ResponseBody
-    public AjaxResult batchOpen(String ids) {
-        String[] idArray = Convert.toStrArray(ids);
-        for (String s : idArray) {
-            MockConfig real = mockConfigService.selectMockConfigById(Long.valueOf(s));
-            if (real != null) {
-                real.setEnabled("1");
-            }
-
-            mockConfigService.updateMockConfig(real);
-        }
-        return AjaxResult.success();
-    }
-
-    @PostMapping("/batchClose")
-    @ResponseBody
-    public AjaxResult batchClose(String ids) {
-        String[] idArray = Convert.toStrArray(ids);
-        for (String s : idArray) {
-            MockConfig real = mockConfigService.selectMockConfigById(Long.valueOf(s));
-            if (real != null) {
-                real.setEnabled("0");
-            }
-
-            mockConfigService.updateMockConfig(real);
-        }
-        return AjaxResult.success();
-    }
 
     @PostMapping("/register")
     @ResponseBody
     public List<MockConfig> register(@RequestBody Request request) {
-
-        logger.info("register mock config {}", JSON.toJSONString(request));
-
+        log.info("register mock config {}", JSON.toJSONString(request));
         ArrayList<MockConfig> arrayList = new ArrayList<MockConfig>();
-
         try {
-
-            request.getMockConfigList().stream()
+            request.getMockConfigList()
                     .forEach(
                             mockConfig -> {
-                                mockConfig.setAppliactionName(request.getAppName());
-                                mockConfig.setType(request.getType());
-                                MockConfig dbConfig = mockConfigService.selectMockConfig(mockConfig);
+                                MockConfig dbConfig = mockConfigService.getOne(new LambdaQueryWrapper<MockConfig>()
+                                        .eq(MockConfig::getAppliactionName,mockConfig.getAppliactionName())
+                                        .eq(MockConfig::getInterfaceName,mockConfig.getInterfaceName())
+                                        .eq(MockConfig::getMethodName,mockConfig.getMethodName())
+                                        .eq(MockConfig::getGroupName,mockConfig.getGroupName())
+                                );
+
                                 if (null != dbConfig) {
                                     return;
                                 }
-                                Long id = mockConfigService.insertMockConfig(mockConfig);
+                                mockConfigService.save(mockConfig);
                                 mockConfig.setType(request.getType());
-                                mockConfig.setId(id);
+                                mockConfig.setId(mockConfig.getId());
                                 mockConfig.setEnabled("0");
                                 arrayList.add(mockConfig);
                             });
         } catch (Exception ex) {
-            logger.info("register mock config error {}", JSON.toJSONString(request), ex);
+            log.error("register mock config error {}", JSON.toJSONString(request), ex);
         }
-
         return arrayList;
     }
 
@@ -185,5 +138,4 @@ public class MockConfigController {
         mockConfigService.updateById(mockConfig);
         return CommonResult.success();
     }
-
 }
