@@ -50,7 +50,6 @@ public class PEMImporter {
      *
      * @param privateKeyPem  the private key PEM file
      * @param certificatePem the certificate(s) PEM file
-     * @param the            password to set to protect the private key
      */
     public static KeyStore createKeyStore(
             File privateKeyPem, File certificatePem, final String password) throws Exception {
@@ -68,7 +67,7 @@ public class PEMImporter {
      *
      * @param privateKeyPem  the private key PEM file
      * @param certificatePem the certificate(s) PEM file
-     * @param the            password to set to protect the private key
+     * @param password       password to set to protect the private key
      */
     public static KeyStore createKeyStore(
             InputStream privateKeyPem, String alias, InputStream certificatePem, final String password) throws Exception {

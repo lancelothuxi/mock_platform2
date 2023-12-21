@@ -28,22 +28,15 @@ import static org.apache.commons.lang.ObjectUtils.defaultIfNull;
  * @since 2023-05-09
  */
 @Controller
-@RequestMapping("/mock/dubbo/config")
+@RequestMapping("/mock/config")
 @Slf4j
 public class MockConfigController {
-    private String prefix = "mock/dubbo/config";
 
     @Autowired
     private IMockConfigService mockConfigService;
 
     @Autowired
     private CommonDubboMockService commonDubboMockService;
-
-    @GetMapping()
-    public String rule(MockConfig mockConfig, ModelMap modelMap) {
-        modelMap.put("type", defaultIfNull(mockConfig.getType(), "dubbo"));
-        return prefix + "/config";
-    }
 
     /**
      * 查询服务mock方法列表
@@ -62,7 +55,7 @@ public class MockConfigController {
      */
     @PostMapping("/add")
     @ResponseBody
-    public CommonResult addSave(MockConfig mockConfig) {
+    public CommonResult<?> addSave(MockConfig mockConfig) {
         mockConfigService.save(mockConfig);
         return CommonResult.success();
     }
@@ -73,7 +66,7 @@ public class MockConfigController {
      */
     @PostMapping("/edit")
     @ResponseBody
-    public CommonResult editSave(MockConfig mockConfig) {
+    public CommonResult<?> editSave(MockConfig mockConfig) {
         mockConfigService.updateById(mockConfig);
         return CommonResult.success();
     }
@@ -83,7 +76,7 @@ public class MockConfigController {
      */
     @PostMapping("/remove")
     @ResponseBody
-    public CommonResult remove(Long id) {
+    public CommonResult<?> remove(Long id) {
         mockConfigService.removeById(id);
         return CommonResult.success();
     }

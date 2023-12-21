@@ -25,16 +25,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/k8s/config")
 public class KubeConfigController {
-    private String prefix = "k8s/config";
-
     @Autowired
     private IKubeConfigService kubeConfigService;
-
-    @GetMapping()
-    public String config() {
-        return prefix + "/config";
-    }
-
     /**
      * 查询k8s管理列表
      */
@@ -49,14 +41,6 @@ public class KubeConfigController {
 
 
     /**
-     * 新增k8s管理
-     */
-    @GetMapping("/add")
-    public String add() {
-        return prefix + "/add";
-    }
-
-    /**
      * 新增保存k8s管理
      */
     @PostMapping("/add")
@@ -64,16 +48,6 @@ public class KubeConfigController {
     public CommonResult addSave(KubeConfig kubeConfig) {
         kubeConfigService.save(kubeConfig);
         return CommonResult.success();
-    }
-
-    /**
-     * 修改k8s管理
-     */
-    @GetMapping("/edit/{id}")
-    public String edit(@PathVariable("id") Long id, ModelMap mmap) {
-        KubeConfig kubeConfig = kubeConfigService.getById(id);
-        mmap.put("kubeConfig", kubeConfig);
-        return prefix + "/edit";
     }
 
     /**

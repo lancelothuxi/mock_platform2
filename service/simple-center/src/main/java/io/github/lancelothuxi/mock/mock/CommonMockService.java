@@ -40,7 +40,6 @@ public class CommonMockService {
             }
 
             MockConfig request = new MockConfig();
-            request.setType("dubbo");
             request.setInterfaceName(interfaceName);
             request.setMethodName(methodName);
             request.setGroupName(mockRequest.getGroupName());

@@ -1,9 +1,11 @@
 package io.github.lancelothuxi.mock.mock.dto;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.simple.dto.PageModel;
 
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class MockConfigQuery extends PageModel {
 
