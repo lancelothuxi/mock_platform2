@@ -3,7 +3,7 @@ package io.github.lancelothuxi.mock.system.service;
 import io.github.lancelothuxi.mock.system.dto.auth.LoginParam;
 import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserDto;
 import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserQuery;
-import org.simple.exception.CustomException;
+import io.github.lancelothuxi.mock.exception.CustomException;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

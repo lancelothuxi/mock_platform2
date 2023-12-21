@@ -17,9 +17,9 @@ import io.github.lancelothuxi.mock.system.mapper.FieldAreaMapper;
 import io.github.lancelothuxi.mock.system.service.IFieldAreaDetailService;
 import io.github.lancelothuxi.mock.system.service.IFieldAreaService;
 import lombok.RequiredArgsConstructor;
-import org.simple.constant.CommonConst;
-import org.simple.dto.IdsModel;
-import org.simple.dto.PageModel;
+import io.github.lancelothuxi.mock.constant.CommonConst;
+import io.github.lancelothuxi.mock.dto.IdsModel;
+import io.github.lancelothuxi.mock.dto.PageModel;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;

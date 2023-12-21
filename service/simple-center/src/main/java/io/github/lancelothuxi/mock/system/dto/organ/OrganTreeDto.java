@@ -2,7 +2,7 @@ package io.github.lancelothuxi.mock.system.dto.organ;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.simple.dto.BaseTree;
+import io.github.lancelothuxi.mock.dto.BaseTree;
 
 import java.util.Date;
 

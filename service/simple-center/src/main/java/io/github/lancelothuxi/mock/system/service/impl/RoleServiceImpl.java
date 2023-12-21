@@ -11,8 +11,8 @@ import io.github.lancelothuxi.mock.system.entity.RoleEntity;
 import io.github.lancelothuxi.mock.system.entity.RoleMenuEntity;
 import io.github.lancelothuxi.mock.system.mapper.RoleMapper;
 import io.github.lancelothuxi.mock.system.service.IRoleService;
-import org.simple.enums.system.ResultCodeEnum;
-import org.simple.exception.CustomException;
+import io.github.lancelothuxi.mock.system.ResultCodeEnum;
+import io.github.lancelothuxi.mock.exception.CustomException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

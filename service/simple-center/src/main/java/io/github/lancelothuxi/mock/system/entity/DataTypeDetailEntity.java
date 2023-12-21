@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import org.simple.dto.BaseEntity;
+import io.github.lancelothuxi.mock.dto.BaseEntity;
 
 /**
  * 系统数据类型明细表

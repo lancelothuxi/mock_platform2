@@ -2,7 +2,7 @@ package io.github.lancelothuxi.mock.system.dto.dict;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.simple.dto.PageModel;
+import io.github.lancelothuxi.mock.dto.PageModel;
 
 /**
  * DictQuery

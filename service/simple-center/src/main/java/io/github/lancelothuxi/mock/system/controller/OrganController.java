@@ -10,10 +10,10 @@ import io.github.lancelothuxi.mock.system.service.IOrganService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.simple.dto.PageModel;
-import org.simple.enums.system.ResultCodeEnum;
-import org.simple.exception.CustomException;
-import org.simple.utils.CommonResult;
+import io.github.lancelothuxi.mock.dto.PageModel;
+import io.github.lancelothuxi.mock.system.ResultCodeEnum;
+import io.github.lancelothuxi.mock.exception.CustomException;
+import io.github.lancelothuxi.mock.utils.CommonResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

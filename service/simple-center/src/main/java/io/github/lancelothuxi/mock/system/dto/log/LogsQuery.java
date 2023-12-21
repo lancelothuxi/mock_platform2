@@ -1,6 +1,6 @@
 package io.github.lancelothuxi.mock.system.dto.log;
 
-import org.simple.dto.PageModel;
+import io.github.lancelothuxi.mock.dto.PageModel;
 
 /**
  * LogsQuery

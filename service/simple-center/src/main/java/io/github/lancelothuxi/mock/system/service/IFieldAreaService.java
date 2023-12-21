@@ -3,8 +3,8 @@ package io.github.lancelothuxi.mock.system.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import io.github.lancelothuxi.mock.system.dto.fieldarea.FieldAreaFormVO;
 import io.github.lancelothuxi.mock.system.entity.FieldAreaEntity;
-import org.simple.dto.IdsModel;
-import org.simple.dto.PageModel;
+import io.github.lancelothuxi.mock.dto.IdsModel;
+import io.github.lancelothuxi.mock.dto.PageModel;
 
 import java.util.List;
 

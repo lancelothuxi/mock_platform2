@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.github.lancelothuxi.mock.system.entity.DictionaryEntity;
 import io.github.lancelothuxi.mock.system.service.IDictionaryService;
 import lombok.AllArgsConstructor;
-import org.simple.utils.RedisUtil;
+import io.github.lancelothuxi.mock.utils.RedisUtil;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;

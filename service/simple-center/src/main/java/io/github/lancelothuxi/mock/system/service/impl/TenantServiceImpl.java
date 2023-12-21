@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.github.lancelothuxi.mock.system.entity.TenantEntity;
 import io.github.lancelothuxi.mock.system.mapper.TenantMapper;
 import io.github.lancelothuxi.mock.system.service.ITenantService;
-import org.simple.dto.PageModel;
+import io.github.lancelothuxi.mock.dto.PageModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

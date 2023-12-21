@@ -3,7 +3,7 @@ package io.github.lancelothuxi.mock.system.service.impl;
 import cn.dev33.satoken.stp.StpInterface;
 import io.github.lancelothuxi.mock.system.service.IUserService;
 import lombok.AllArgsConstructor;
-import org.simple.utils.RedisUtil;
+import io.github.lancelothuxi.mock.utils.RedisUtil;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

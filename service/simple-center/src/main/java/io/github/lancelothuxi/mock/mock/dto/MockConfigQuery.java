@@ -3,7 +3,7 @@ package io.github.lancelothuxi.mock.mock.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.simple.dto.PageModel;
+import io.github.lancelothuxi.mock.dto.PageModel;
 
 
 @EqualsAndHashCode(callSuper = true)

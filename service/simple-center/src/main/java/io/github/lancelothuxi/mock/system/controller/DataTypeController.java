@@ -6,10 +6,10 @@ import io.github.lancelothuxi.mock.system.service.IDataTypeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.simple.dto.EnumVO;
-import org.simple.dto.IdsModel;
-import org.simple.dto.PageModel;
-import org.simple.dto.PageResult;
+import io.github.lancelothuxi.mock.dto.EnumVO;
+import io.github.lancelothuxi.mock.dto.IdsModel;
+import io.github.lancelothuxi.mock.dto.PageModel;
+import io.github.lancelothuxi.mock.dto.PageResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

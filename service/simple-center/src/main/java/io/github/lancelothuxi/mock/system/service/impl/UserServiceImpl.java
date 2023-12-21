@@ -11,10 +11,10 @@ import io.github.lancelothuxi.mock.system.entity.MenuEntity;
 import io.github.lancelothuxi.mock.system.entity.UserEntity;
 import io.github.lancelothuxi.mock.system.mapper.UserMapper;
 import io.github.lancelothuxi.mock.system.service.IUserService;
-import org.simple.constant.CommonConst;
-import org.simple.utils.CommonResult;
-import org.simple.utils.PageUtil;
-import org.simple.utils.TreeUtil;
+import io.github.lancelothuxi.mock.constant.CommonConst;
+import io.github.lancelothuxi.mock.utils.CommonResult;
+import io.github.lancelothuxi.mock.utils.PageUtil;
+import io.github.lancelothuxi.mock.utils.TreeUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

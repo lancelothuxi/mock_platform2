@@ -20,11 +20,11 @@ import io.github.lancelothuxi.mock.system.entity.UserEntity;
 import io.github.lancelothuxi.mock.system.service.IAuthService;
 import io.github.lancelothuxi.mock.system.service.IUserService;
 import lombok.AllArgsConstructor;
-import org.simple.config.auth.AuthProperties;
-import org.simple.constant.RedisConst;
-import org.simple.enums.system.ResultCodeEnum;
-import org.simple.exception.CustomException;
-import org.simple.utils.RedisUtil;
+import io.github.lancelothuxi.mock.config.auth.AuthProperties;
+import io.github.lancelothuxi.mock.constant.RedisConst;
+import io.github.lancelothuxi.mock.system.ResultCodeEnum;
+import io.github.lancelothuxi.mock.exception.CustomException;
+import io.github.lancelothuxi.mock.utils.RedisUtil;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 

@@ -5,7 +5,7 @@ import io.github.lancelothuxi.mock.system.dto.menu.MenuTreeDto;
 import io.github.lancelothuxi.mock.system.dto.user.UserEntityDto;
 import io.github.lancelothuxi.mock.system.dto.user.UserQuery;
 import io.github.lancelothuxi.mock.system.entity.UserEntity;
-import org.simple.utils.CommonResult;
+import io.github.lancelothuxi.mock.utils.CommonResult;
 
 import java.util.List;
 

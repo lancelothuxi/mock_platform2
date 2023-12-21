@@ -1,17 +1,12 @@
 package io.github.lancelothuxi.mock.k8s.config;
 
-import cn.dev33.satoken.annotation.SaCheckPermission;
-import cn.dev33.satoken.annotation.SaMode;
 import io.github.lancelothuxi.mock.domain.KubeConfig;
 import io.github.lancelothuxi.mock.k8s.dto.KubeConfigQuery;
 import io.github.lancelothuxi.mock.service.IKubeConfigService;
-import io.swagger.v3.oas.annotations.Operation;
-import org.simple.constant.CommonConst;
-import org.simple.dto.PageResult;
-import org.simple.utils.CommonResult;
+import io.github.lancelothuxi.mock.dto.PageResult;
+import io.github.lancelothuxi.mock.utils.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

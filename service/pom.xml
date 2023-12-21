@@ -10,7 +10,6 @@
     <version>1.0-RELEASE</version>
     <description>simple-boot</description>
     <modules>
-        <module>simple-base</module>
         <module>simple-center</module>
     </modules>
 

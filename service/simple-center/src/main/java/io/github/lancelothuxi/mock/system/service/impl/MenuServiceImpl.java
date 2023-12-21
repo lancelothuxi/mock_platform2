@@ -11,7 +11,7 @@ import io.github.lancelothuxi.mock.system.dto.menu.MenuTreeDto;
 import io.github.lancelothuxi.mock.system.entity.MenuEntity;
 import io.github.lancelothuxi.mock.system.mapper.MenuMapper;
 import io.github.lancelothuxi.mock.system.service.IMenuService;
-import org.simple.utils.TreeUtil;
+import io.github.lancelothuxi.mock.utils.TreeUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

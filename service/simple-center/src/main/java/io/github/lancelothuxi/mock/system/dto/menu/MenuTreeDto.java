@@ -2,7 +2,7 @@ package io.github.lancelothuxi.mock.system.dto.menu;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
-import org.simple.dto.BaseTree;
+import io.github.lancelothuxi.mock.dto.BaseTree;
 
 import java.util.List;
 

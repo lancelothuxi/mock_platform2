@@ -1,7 +1,7 @@
 package io.github.lancelothuxi.mock.mock.dto;
 
 import lombok.Data;
-import org.simple.dto.PageModel;
+import io.github.lancelothuxi.mock.dto.PageModel;
 
 @Data
 public class MockDataQuery extends PageModel {

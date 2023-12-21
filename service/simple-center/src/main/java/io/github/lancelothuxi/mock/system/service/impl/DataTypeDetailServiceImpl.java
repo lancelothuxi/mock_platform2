@@ -6,7 +6,7 @@ import io.github.lancelothuxi.mock.system.entity.DataTypeDetailEntity;
 import io.github.lancelothuxi.mock.system.mapper.DataTypeDetailMapper;
 import io.github.lancelothuxi.mock.system.service.IDataTypeDetailService;
 import lombok.RequiredArgsConstructor;
-import org.simple.constant.CommonConst;
+import io.github.lancelothuxi.mock.constant.CommonConst;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;

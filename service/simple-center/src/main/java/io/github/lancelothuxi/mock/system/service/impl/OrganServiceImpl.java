@@ -7,8 +7,8 @@ import io.github.lancelothuxi.mock.system.dto.organ.OrganTreeDto;
 import io.github.lancelothuxi.mock.system.entity.OrganEntity;
 import io.github.lancelothuxi.mock.system.mapper.OrganMapper;
 import io.github.lancelothuxi.mock.system.service.IOrganService;
-import org.simple.dto.PageModel;
-import org.simple.utils.TreeUtil;
+import io.github.lancelothuxi.mock.dto.PageModel;
+import io.github.lancelothuxi.mock.utils.TreeUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;

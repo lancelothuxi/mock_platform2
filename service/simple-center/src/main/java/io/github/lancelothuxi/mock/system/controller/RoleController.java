@@ -10,9 +10,9 @@ import io.github.lancelothuxi.mock.system.service.IRoleService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.simple.dto.IdsModel;
-import org.simple.dto.PageResult;
-import org.simple.exception.CustomException;
+import io.github.lancelothuxi.mock.dto.IdsModel;
+import io.github.lancelothuxi.mock.dto.PageResult;
+import io.github.lancelothuxi.mock.exception.CustomException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

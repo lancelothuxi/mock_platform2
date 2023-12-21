@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.simple.dto.BaseEntity;
+import io.github.lancelothuxi.mock.dto.BaseEntity;
 
 
 /**

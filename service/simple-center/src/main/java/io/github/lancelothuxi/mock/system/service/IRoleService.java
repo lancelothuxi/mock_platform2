@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import io.github.lancelothuxi.mock.system.dto.role.RoleQuery;
 import io.github.lancelothuxi.mock.system.entity.RoleEntity;
 import io.github.lancelothuxi.mock.system.entity.RoleMenuEntity;
-import org.simple.exception.CustomException;
+import io.github.lancelothuxi.mock.exception.CustomException;
 
 import java.util.List;
 

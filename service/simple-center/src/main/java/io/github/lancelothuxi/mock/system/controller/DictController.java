@@ -16,11 +16,11 @@ import io.github.lancelothuxi.mock.system.service.IDictionaryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.simple.constant.CommonConst;
-import org.simple.dto.IdsModel;
-import org.simple.dto.PageResult;
-import org.simple.utils.CommonResult;
-import org.simple.utils.RedisUtil;
+import io.github.lancelothuxi.mock.constant.CommonConst;
+import io.github.lancelothuxi.mock.dto.IdsModel;
+import io.github.lancelothuxi.mock.dto.PageResult;
+import io.github.lancelothuxi.mock.utils.CommonResult;
+import io.github.lancelothuxi.mock.utils.RedisUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

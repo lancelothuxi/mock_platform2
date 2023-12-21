@@ -7,7 +7,7 @@ import io.github.lancelothuxi.mock.system.entity.TableColumnEntity;
 import io.github.lancelothuxi.mock.system.mapper.TableColumnMapper;
 import io.github.lancelothuxi.mock.system.service.ITableColumnService;
 import lombok.RequiredArgsConstructor;
-import org.simple.constant.CommonConst;
+import io.github.lancelothuxi.mock.constant.CommonConst;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
