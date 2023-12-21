@@ -79,4 +79,6 @@ public class MockConfig extends BaseEntity {
     private Long serverSideMock;
 
     private String type;
+
+    private List<MockData> mockDataList;
 }

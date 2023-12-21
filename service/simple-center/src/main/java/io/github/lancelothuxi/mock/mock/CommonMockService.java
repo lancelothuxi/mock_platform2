@@ -48,11 +48,10 @@ public class CommonMockService {
             request.setEnabled("1");
 
             // 查询配置
-            MockConfig mockConfig = mockConfigService.getById(request);
+            MockConfig mockConfig = mockConfigService.getOne(request);
             if (mockConfig == null) {
                 if (logger.isDebugEnabled()) {
-                    logger.debug(
-                            "doMockRequest mockConfigs null mockRequest={}", JSON.toJSONString(mockRequest));
+                    logger.debug("doMockRequest mockConfigs null mockRequest={}", JSON.toJSONString(mockRequest));
                 }
                 MockResponse mockResponse = new MockResponse();
                 mockResponse.setCode(-1);
@@ -60,8 +59,7 @@ public class CommonMockService {
             }
 
             // 匹配数据
-            MockData mockData =
-                    MockUtil.getMockData(mockRequest.getArgs(), mockConfig, mockConfig.getMockDataList());
+            MockData mockData = MockUtil.getMockData(mockRequest.getArgs(), mockConfig, mockConfig.getMockDataList());
             if (mockData == null) {
                 if (logger.isDebugEnabled()) {
                     logger.debug("doMockRequest null mockRequest={}", JSON.toJSONString(mockRequest));

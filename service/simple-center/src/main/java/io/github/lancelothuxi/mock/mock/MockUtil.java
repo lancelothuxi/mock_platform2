@@ -65,20 +65,6 @@ public class MockUtil {
             return null;
         }
 
-        // 精准匹配
-        if (mockConfig.getDirectMatch() != null && mockConfig.getDirectMatch() == 1) {
-
-            MockExpression mockExpression = mockDataList.get(0).getMockExpressions().get(0);
-            String jsonPath = mockExpression.getJsonPath();
-
-            final Object jsonPathValue = compile(jsonPath).eval(jsonObject);
-            if (jsonPathValue == null) {
-                return null;
-            }
-
-            return mockConfig.getDirMockDataMap().get(jsonPathValue.toString());
-        }
-
         Map<String, String> jsonPathValueMap = new HashMap<>();
 
         for (MockData mockData : mockDataList) {
@@ -87,8 +73,6 @@ public class MockUtil {
                 boolean checkMatch = andMatch(jsonObject, mockData.getMockExpressions(), jsonPathValueMap);
                 if (checkMatch) {
                     return mockData;
-                } else {
-                    continue;
                 }
 
             } catch (Exception ex) {

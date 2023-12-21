@@ -25,8 +25,6 @@ public class MockConfigServiceImpl extends ServiceImpl<MockConfigMapper,MockConf
 
     @Override
     public boolean updateById(MockConfig entity) {
-        super.updateById(entity);
-        MockConfig real = this.getById(entity);
         return super.updateById(entity);
     }
 
