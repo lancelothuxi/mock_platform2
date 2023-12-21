@@ -14,4 +14,6 @@ import java.util.List;
  */
 public interface IMockConfigService extends IService<MockConfig> {
     List<MockConfig> queryForPage(MockConfigQuery mockConfigQuery);
+    MockConfig queryOne(MockConfig mockConfig);
+
 }

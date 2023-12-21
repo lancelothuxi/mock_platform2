@@ -1,5 +1,6 @@
 package io.github.lancelothuxi.mock.mock.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.simple.dto.PageModel;
@@ -7,6 +8,7 @@ import org.simple.dto.PageModel;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
+@AllArgsConstructor
 public class MockConfigQuery extends PageModel {
 
     private String interfaceName;
@@ -35,5 +37,8 @@ public class MockConfigQuery extends PageModel {
      * 应用名
      */
     private String applicationName;
+
+
+    private String type;
 
 }

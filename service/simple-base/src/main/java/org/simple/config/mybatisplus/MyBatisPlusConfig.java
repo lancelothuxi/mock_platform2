@@ -30,16 +30,4 @@ public class MyBatisPlusConfig {
         return interceptor;
     }
 
-    /**
-     * 防止全表更新与删除插件
-     *
-     * @return MybatisPlusInterceptor
-     */
-    @Bean
-    public MybatisPlusInterceptor blockAttackInterceptor() {
-        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-        interceptor.addInnerInterceptor(new BlockAttackInnerInterceptor());
-        return interceptor;
-    }
-
 }

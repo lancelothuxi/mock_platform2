@@ -1,6 +1,7 @@
 package io.github.lancelothuxi.mock.mock;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONPath;
 import com.alibaba.fastjson.JSONPathException;
 import io.github.lancelothuxi.mock.domain.MockConfig;
 import io.github.lancelothuxi.mock.domain.MockData;
@@ -22,11 +23,7 @@ import java.util.concurrent.*;
  */
 public class MockUtil {
 
-    private static ConcurrentMap<String, MockJSONPath> pathCache =
-            new ConcurrentHashMap<String, MockJSONPath>(128, 0.75f, 1);
-
-    private static Logger logger = LoggerFactory.getLogger(MockUtil.class);
-
+    private static final Logger logger = LoggerFactory.getLogger(MockUtil.class);
     private static HashedWheelTimer hashedWheelTimer =
             new HashedWheelTimer(Executors.defaultThreadFactory(), 100, TimeUnit.NANOSECONDS);
 
@@ -58,7 +55,7 @@ public class MockUtil {
 
         Object jsonObject = JSON.parse(args);
 
-        if (mockDataList == null || mockDataList.size() == 0) {
+        if (mockDataList == null || mockDataList.isEmpty()) {
             if (logger.isInfoEnabled()) {
                 logger.info("mock mockDataList is empty ");
             }
@@ -76,7 +73,6 @@ public class MockUtil {
                 }
 
             } catch (Exception ex) {
-                continue;
             }
         }
 
@@ -97,7 +93,7 @@ public class MockUtil {
 
             String jsonPath = mockExpression.getJsonPath();
             if (!jsonPathValueMap.containsKey(jsonPath)) {
-                final Object jsonPathValue = compile(jsonPath).eval(jsonObject);
+                final Object jsonPathValue = JSONPath.compile(jsonPath).eval(jsonObject);
                 jsonPathValueMap.put(jsonPath, jsonPathValue == null ? null : jsonPathValue.toString());
             }
 
@@ -115,19 +111,4 @@ public class MockUtil {
         return true;
     }
 
-    public static MockJSONPath compile(String path) {
-        if (path == null) {
-            throw new JSONPathException("jsonpath can not be null");
-        }
-
-        MockJSONPath jsonpath = pathCache.get(path);
-        if (jsonpath == null) {
-            jsonpath = new MockJSONPath(path);
-            if (pathCache.size() < 40960) {
-                pathCache.putIfAbsent(path, jsonpath);
-                jsonpath = pathCache.get(path);
-            }
-        }
-        return jsonpath;
-    }
 }

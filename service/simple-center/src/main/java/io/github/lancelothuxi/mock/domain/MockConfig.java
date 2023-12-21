@@ -71,7 +71,7 @@ public class MockConfig extends BaseEntity {
     /**
      * 应用名
      */
-    private String appliactionName;
+    private String applicationName;
 
     /**
      * 是否服务端mock 1是 0 表示客户端mock

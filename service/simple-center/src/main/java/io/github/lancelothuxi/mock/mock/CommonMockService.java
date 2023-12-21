@@ -44,11 +44,11 @@ public class CommonMockService {
             request.setMethodName(methodName);
             request.setGroupName(mockRequest.getGroupName());
             request.setVersion(mockRequest.getVersion());
-            request.setAppliactionName(mockRequest.getAppName());
+            request.setApplicationName(mockRequest.getAppName());
             request.setEnabled("1");
 
             // 查询配置
-            MockConfig mockConfig = mockConfigService.getOne(request);
+            MockConfig mockConfig = mockConfigService.queryOne(request);
             if (mockConfig == null) {
                 if (logger.isDebugEnabled()) {
                     logger.debug("doMockRequest mockConfigs null mockRequest={}", JSON.toJSONString(mockRequest));

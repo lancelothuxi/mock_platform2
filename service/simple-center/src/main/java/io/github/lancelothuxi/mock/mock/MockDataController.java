@@ -49,7 +49,7 @@ public class MockDataController {
         List<MockData> list = mockDataService.queryForPage(mockDataQuery);
         if (list != null) {
             for (MockData data : list) {
-                data.setApplicationName(mockConfig.getAppliactionName());
+                data.setApplicationName(mockConfig.getApplicationName());
             }
         }
         PageResult<MockData> pageResult = new PageResult<>(list);

@@ -36,7 +36,7 @@ public class MockConfigController {
     private IMockConfigService mockConfigService;
 
     @Autowired
-    private CommonDubboMockService commonDubboMockService;
+    private CommonMockService commonMockService;
 
     /**
      * 查询服务mock方法列表
@@ -92,7 +92,7 @@ public class MockConfigController {
                     .forEach(
                             mockConfig -> {
                                 MockConfig dbConfig = mockConfigService.getOne(new LambdaQueryWrapper<MockConfig>()
-                                        .eq(MockConfig::getAppliactionName,mockConfig.getAppliactionName())
+                                        .eq(MockConfig::getApplicationName,mockConfig.getApplicationName())
                                         .eq(MockConfig::getInterfaceName,mockConfig.getInterfaceName())
                                         .eq(MockConfig::getMethodName,mockConfig.getMethodName())
                                         .eq(MockConfig::getGroupName,mockConfig.getGroupName())
@@ -119,7 +119,7 @@ public class MockConfigController {
     @PostMapping("/queryMockConfigData")
     @ResponseBody
     public MockResponse queryMockConfigData(@RequestBody MockRequest request) {
-        return commonDubboMockService.doMockRequest(request);
+        return commonMockService.doMockRequest(request);
     }
 
     /**
