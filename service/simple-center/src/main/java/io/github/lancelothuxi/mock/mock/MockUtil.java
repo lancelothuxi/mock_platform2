@@ -85,7 +85,7 @@ public class MockUtil {
             Map<String, String> jsonPathValueMap) {
 
         // 对实际参数 做jsonPath evaluation 看是否符合 条件
-        if (mockExpressions == null || mockExpressions.size() == 0) {
+        if (mockExpressions == null || mockExpressions.isEmpty()) {
             return true;
         }
 

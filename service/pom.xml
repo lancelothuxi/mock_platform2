@@ -51,16 +51,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
+
             <dependency>
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-ui</artifactId>
@@ -101,16 +92,7 @@
                 <artifactId>fastjson</artifactId>
                 <version>1.2.83</version>
             </dependency>
-            <dependency>
-                <groupId>com.xuxueli</groupId>
-                <artifactId>xxl-job-core</artifactId>
-                <version>2.3.1</version>
-            </dependency>
-            <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>dysmsapi20170525</artifactId>
-                <version>2.0.10</version>
-            </dependency>
+
             <!--认证授权框架-->
             <dependency>
                 <groupId>cn.dev33</groupId>
@@ -135,11 +117,6 @@
                 <version>1.6.2</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.github.ben-manes.caffeine</groupId>
-                <artifactId>guava</artifactId>
-                <version>${caffeine.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
@@ -147,11 +124,6 @@
                 <version>3.0.2</version>
             </dependency>
 
-            <dependency>
-                <groupId>io.fabric8</groupId>
-                <artifactId>kubernetes-client</artifactId>
-                <version>6.8.0</version>
-            </dependency>
 
             <dependency>
                 <groupId>io.fabric8</groupId>
@@ -160,17 +132,6 @@
                 <scope>test</scope>
             </dependency>
 
-            <dependency>
-                <groupId>org.bouncycastle</groupId>
-                <artifactId>bcprov-jdk15on</artifactId>
-                <version>1.68</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.bouncycastle</groupId>
-                <artifactId>bcpkix-jdk15on</artifactId>
-                <version>1.68</version>
-            </dependency>
 
         </dependencies>
     </dependencyManagement>
