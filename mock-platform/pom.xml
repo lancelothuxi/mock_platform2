@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>simple-boot</artifactId>
-    <groupId>org.simple</groupId>
+    <artifactId>mock-platform</artifactId>
+    <groupId>io.github.lancelothuxi</groupId>
     <packaging>pom</packaging>
     <version>1.0-RELEASE</version>
-    <description>simple-boot</description>
+    <description>mock-platform</description>
     <modules>
-        <module>simple-center</module>
+        <module>mock-server</module>
     </modules>
 
     <properties>
