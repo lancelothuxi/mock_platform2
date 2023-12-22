@@ -2,6 +2,7 @@ package io.github.lancelothuxi.mock.utils;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 public class RedisUtil {
 
-    private final RedisTemplate<String, Object> redisTemplate;
+    private final StringRedisTemplate redisTemplate;
 
     /**
      * 给一个指定的 key 值附加过期时间
@@ -92,7 +93,7 @@ public class RedisUtil {
      * @param key   键
      * @param value 值
      */
-    public void setObj(String key, Object value) {
+    public void setObj(String key, String value) {
         redisTemplate.opsForValue().set(key, value);
     }
 
@@ -174,7 +175,7 @@ public class RedisUtil {
      * @param key 键
      * @return 值
      */
-    public Set<Object> members(String key) {
+    public Set<String> members(String key) {
         return redisTemplate.opsForSet().members(key);
     }
 
@@ -259,7 +260,7 @@ public class RedisUtil {
      * @param destKey 键
      * @return 差值
      */
-    public Set<Object> difference(String key, String destKey) {
+    public Set<String> difference(String key, String destKey) {
         return redisTemplate.opsForSet().difference(key, destKey);
     }
 
@@ -413,7 +414,7 @@ public class RedisUtil {
      * @param key   键
      * @param value 元素
      */
-    public void leftPush(String key, Object value) {
+    public void leftPush(String key, String value) {
         redisTemplate.opsForList().leftPush(key, value);
     }
 
@@ -426,7 +427,7 @@ public class RedisUtil {
      * @param end   结束位置
      * @return 值列表
      */
-    public List<Object> range(String key, long start, long end) {
+    public List<String> range(String key, long start, long end) {
         return redisTemplate.opsForList().range(key, start, end);
     }
 
@@ -478,7 +479,7 @@ public class RedisUtil {
      * @param key   键
      * @param value 元素
      */
-    public void rightPushIfPresent(String key, Object value) {
+    public void rightPushIfPresent(String key, String value) {
         redisTemplate.opsForList().rightPushIfPresent(key, value);
     }
 

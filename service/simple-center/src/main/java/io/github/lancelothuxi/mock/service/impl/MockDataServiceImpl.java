@@ -1,14 +1,11 @@
 package io.github.lancelothuxi.mock.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.github.lancelothuxi.mock.domain.MockData;
 import io.github.lancelothuxi.mock.mapper.MockDataMapper;
 import io.github.lancelothuxi.mock.mock.dto.MockDataQuery;
 import io.github.lancelothuxi.mock.service.IMockConfigService;
 import io.github.lancelothuxi.mock.service.IMockDataService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
