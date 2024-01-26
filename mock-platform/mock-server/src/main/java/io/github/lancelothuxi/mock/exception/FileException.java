@@ -1,8 +1,8 @@
 package io.github.lancelothuxi.mock.exception;
 
+import io.github.lancelothuxi.mock.system.ResultCodeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.simple.enums.system.ResultCodeEnum;
 
 /**
  * 文件操作异常封装

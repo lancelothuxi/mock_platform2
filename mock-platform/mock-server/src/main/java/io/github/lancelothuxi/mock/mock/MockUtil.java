@@ -5,16 +5,12 @@ import com.alibaba.fastjson.JSONPath;
 import com.alibaba.fastjson.JSONPathException;
 import io.github.lancelothuxi.mock.domain.MockConfig;
 import io.github.lancelothuxi.mock.domain.MockData;
-import io.netty.util.HashedWheelTimer;
-import io.netty.util.Timeout;
-import io.netty.util.TimerTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.*;
 
 /**
  * @author lancelot
@@ -24,8 +20,6 @@ import java.util.concurrent.*;
 public class MockUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(MockUtil.class);
-    private static HashedWheelTimer hashedWheelTimer =
-            new HashedWheelTimer(Executors.defaultThreadFactory(), 100, TimeUnit.NANOSECONDS);
 
     public static void sleep(long milliSeconds, long elapsed) throws InterruptedException {
         // 如果mock逻辑额外耗时已经超过 milliSeconds 则不需要mock
@@ -35,19 +29,8 @@ public class MockUtil {
 
         final long expectedCost = milliSeconds - elapsed;
 
-        CountDownLatch countDownLatch = new CountDownLatch(1);
+        Thread.sleep(expectedCost);
 
-        hashedWheelTimer.newTimeout(
-                new TimerTask() {
-                    @Override
-                    public void run(Timeout timeout) {
-                        countDownLatch.countDown();
-                    }
-                },
-                expectedCost,
-                TimeUnit.MILLISECONDS);
-
-        countDownLatch.await();
     }
 
     public static MockData getMockData(

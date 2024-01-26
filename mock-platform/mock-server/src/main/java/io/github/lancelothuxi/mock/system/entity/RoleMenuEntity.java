@@ -2,7 +2,6 @@ package io.github.lancelothuxi.mock.system.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -20,11 +19,9 @@ import lombok.experimental.Accessors;
 @TableName(value = "center_rolemenu", autoResultMap = true)
 public class RoleMenuEntity {
 
-    @Schema(description = "角色id")
     @TableField("role")
     private String role;
 
-    @Schema(description = "菜单id")
     @TableField("menu")
     private String menu;
 }

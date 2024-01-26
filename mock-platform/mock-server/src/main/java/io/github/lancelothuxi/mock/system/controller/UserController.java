@@ -14,8 +14,6 @@ import io.github.lancelothuxi.mock.system.dto.user.UserEntityDto;
 import io.github.lancelothuxi.mock.system.dto.user.UserQuery;
 import io.github.lancelothuxi.mock.system.entity.UserEntity;
 import io.github.lancelothuxi.mock.system.service.IUserService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import io.github.lancelothuxi.mock.constant.CommonConst;
 import io.github.lancelothuxi.mock.constant.RedisConst;
@@ -40,13 +38,11 @@ import java.util.Map;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/center/system/user")
-@Tag(name = "user", description = "用户管理")
 public class UserController {
     private final IUserService userService;
     private final RedisUtil redisUtil;
 
     @GetMapping("info")
-    @Operation(summary = "查询当前用户信息")
     public Map<String, Object> getUserInfo() {
         String userId = AuthUtils.getUserId();
         UserEntity userEntity = userService.getById(userId);
@@ -61,13 +57,11 @@ public class UserController {
     }
 
     @GetMapping("menu")
-    @Operation(summary = "查询当前用户菜单")
     public List<MenuTreeDto> getUserMenu() {
         return userService.getUserMenu(AuthUtils.getUserId());
     }
 
     @GetMapping("list")
-    @Operation(summary = "查询用户列表")
     @SaCheckPermission(value = {"system:user:query"}, mode = SaMode.OR)
     public PageResult<UserEntityDto> list(UserQuery query) {
         List<UserEntityDto> list = userService.listAll(query);
@@ -77,7 +71,6 @@ public class UserController {
     }
 
     @GetMapping("list1")
-    @Operation(summary = "根据条件查询用户")
     public List<UserEntity> list1(UserEntity userEntity) {
         String id = userEntity.getId();
         userEntity.setId(null);
@@ -85,7 +78,6 @@ public class UserController {
     }
 
     @PostMapping("addUser")
-    @Operation(summary = "新增用户信息")
     @SaCheckPermission(value = {"system:user:add"}, mode = SaMode.OR)
     public CommonResult addUser(@RequestBody UserEntityDto userDto) {
         String userid = String.valueOf(YitIdHelper.nextId());
@@ -111,14 +103,12 @@ public class UserController {
     }
 
     @PostMapping("editUser")
-    @Operation(summary = "修改用户信息")
     @SaCheckPermission(value = {"system:user:edit"}, mode = SaMode.OR)
     public void editUser(@RequestBody UserEntityDto userDto) {
         userService.updateUser(userDto);
     }
 
     @PostMapping("delUser/{id}")
-    @Operation(summary = "删除用户信息")
     @SaCheckPermission(value = {"system:user:del"}, mode = SaMode.OR)
     public CommonResult delUser(@PathVariable("id") String id) {
         if (CommonConst.SUPER_ADMIN.equals(id)) {
@@ -128,7 +118,6 @@ public class UserController {
     }
 
     @GetMapping("lock/{id}")
-    @Operation(summary = "锁定用户")
     public CommonResult lock(@PathVariable("id") String id) {
         UserEntity userEntity = new UserEntity();
         userEntity.setId(id);
@@ -138,7 +127,6 @@ public class UserController {
     }
 
     @GetMapping("unlock/{id}")
-    @Operation(summary = "解锁用户")
     public CommonResult unlock(@PathVariable("id") String id) {
         UserEntity userEntity = new UserEntity();
         userEntity.setId(id);
@@ -148,7 +136,6 @@ public class UserController {
     }
 
     @GetMapping("resetPwd/{id}")
-    @Operation(summary = "重置密码")
     public CommonResult resetPwd(@PathVariable("id") String id) {
         UserEntity userEntity = userService.getById(id);
         String md5Pwd = DigestUtil.md5Hex(userEntity.getUsername().toLowerCase() + "888888");
@@ -158,7 +145,6 @@ public class UserController {
     }
 
     @PostMapping("updatePwd")
-    @Operation(summary = "修改密码")
     public CommonResult updatePwd(@RequestBody UserEntityDto userDto) {
         UserEntity userEntity = new UserEntity();
         if (StrUtil.isEmpty(userDto.getId())) {
@@ -172,7 +158,6 @@ public class UserController {
     }
 
     @PostMapping("checkPwd")
-    @Operation(summary = "检验密码是否正确")
     public CommonResult checkPwd(@RequestBody UserEntityDto userDto) {
         if (StrUtil.isEmpty(userDto.getId())) {
             userDto.setId(AuthUtils.getUserId());
@@ -186,7 +171,6 @@ public class UserController {
     }
 
     @GetMapping("queryUser")
-    @Operation(summary = "查询当前用户")
     public CommonResult queryUser() {
         UserEntity userEntity = userService.getById(AuthUtils.getUserId());
         UserEntity r = new UserEntity();
@@ -198,7 +182,6 @@ public class UserController {
     }
 
     @PostMapping("updateUser")
-    @Operation(summary = "更新用户信息")
     public CommonResult updateUser(@RequestBody UserEntity userEntity) {
         if (!userEntity.getId().equals(AuthUtils.getUserId())) {
             return CommonResult.failed("非法操作");
@@ -207,7 +190,6 @@ public class UserController {
     }
 
     @GetMapping("sendMsg")
-    @Operation(summary = "发送消息")
     public CommonResult sendMsg(@RequestParam("phone") String phone) {
         //判断是否和当前手机号一直
         UserEntity phoneUserEntity = new UserEntity();
@@ -236,7 +218,6 @@ public class UserController {
     }
 
     @GetMapping("updatePhone")
-    @Operation(summary = "更新手机号")
     public CommonResult updatePhone(@RequestParam("password") String password,
                                     @RequestParam("code") String code) {
         String key = RedisConst.PHONE_UPDATE_CODE_STR + AuthUtils.getUserId();
@@ -264,7 +245,6 @@ public class UserController {
 
 
     @GetMapping("updateEmail")
-    @Operation(summary = "更新邮箱")
     public CommonResult updateEmail(@RequestParam("password") String password,
                                     @RequestParam("code") String code) {
         String key = RedisConst.EMAIL_UPDATE_CODE_STR + AuthUtils.getUserId();

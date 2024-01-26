@@ -7,7 +7,7 @@ import io.github.lancelothuxi.mock.domain.MockConfig;
 import io.github.lancelothuxi.mock.domain.MockData;
 import io.github.lancelothuxi.mock.functions.CompoundVariable;
 import io.github.lancelothuxi.mock.service.IMockConfigService;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

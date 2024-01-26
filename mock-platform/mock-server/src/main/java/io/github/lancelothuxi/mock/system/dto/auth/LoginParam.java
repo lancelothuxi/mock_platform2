@@ -2,7 +2,6 @@ package io.github.lancelothuxi.mock.system.dto.auth;
 
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
 
 /**
  * LoginParam
@@ -14,16 +13,12 @@ import javax.validation.constraints.NotNull;
 @Data
 public class LoginParam {
 
-    @NotNull(message = "请输入验证码")
     private String code;
 
-    @NotNull(message = "网络出错，请稍后重试")
     private String sp;
 
-    @NotNull(message = "请输入用户名")
     private String userName;
 
-    @NotNull(message = "请输入密码")
     private String password;
 
     private String device;

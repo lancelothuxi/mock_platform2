@@ -1,5 +1,6 @@
 package io.github.lancelothuxi.mock.exception;
 
+import io.github.lancelothuxi.mock.system.ResultCodeEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

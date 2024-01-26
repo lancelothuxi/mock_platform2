@@ -1,6 +1,5 @@
 package io.github.lancelothuxi.mock.dto;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.util.List;
@@ -19,13 +18,11 @@ public class PageResult<T> {
     /**
      * 总行数
      */
-    @Schema(description = "总行数")
     private Long total;
 
     /**
      * 数据列表
      */
-    @Schema(description = "数据列表")
     private List<T> list;
 
     /**

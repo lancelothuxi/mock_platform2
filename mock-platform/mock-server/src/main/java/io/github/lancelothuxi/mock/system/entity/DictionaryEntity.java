@@ -2,7 +2,6 @@ package io.github.lancelothuxi.mock.system.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import io.github.lancelothuxi.mock.dto.BaseEntity;
@@ -20,15 +19,12 @@ import io.github.lancelothuxi.mock.dto.BaseEntity;
 @TableName(value = "center_dictionary")
 public class DictionaryEntity extends BaseEntity {
 
-    @Schema(description = "编号")
     @TableField("code")
     private String code;
 
-    @Schema(description = "值")
     @TableField("value")
     private String value;
 
-    @Schema(description = "文本")
     @TableField("label")
     private String label;
 }

@@ -1,7 +1,7 @@
 package io.github.lancelothuxi.mock.polling;
 
 import io.github.lancelothuxi.mock.domain.MockConfig;
-import org.apache.commons.collections.CollectionUtils;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Arrays;
 import java.util.Iterator;

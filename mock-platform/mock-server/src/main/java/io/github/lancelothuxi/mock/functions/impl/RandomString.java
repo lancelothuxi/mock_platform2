@@ -2,8 +2,8 @@ package io.github.lancelothuxi.mock.functions.impl;
 
 import io.github.lancelothuxi.mock.functions.AbstractFunction;
 import io.github.lancelothuxi.mock.functions.CompoundVariable;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.Collection;
 

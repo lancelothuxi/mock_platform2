@@ -21,7 +21,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WebFilterConfig implements WebMvcConfigurer {
 
-    private final WebInterceptorHandler webInterceptorHandler;
 
     /**
      * 跨域配置
@@ -46,7 +45,6 @@ public class WebFilterConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(@Nonnull InterceptorRegistry registry) {
         WebMvcConfigurer.super.addInterceptors(registry);
-        registry.addInterceptor(webInterceptorHandler).addPathPatterns("/**").excludePathPatterns(excludePath());
     }
 
     /**

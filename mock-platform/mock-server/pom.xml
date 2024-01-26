@@ -12,18 +12,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.simple</groupId>
-            <artifactId>simple-base</artifactId>
-            <version>1.0-RELEASE</version>
-            <scope>compile</scope>
+            <groupId>io.fabric8</groupId>
+            <artifactId>kubernetes-client</artifactId>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

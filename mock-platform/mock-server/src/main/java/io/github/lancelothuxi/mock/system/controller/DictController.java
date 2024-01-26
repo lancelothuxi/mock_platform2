@@ -13,8 +13,6 @@ import com.github.yitter.idgen.YitIdHelper;
 import io.github.lancelothuxi.mock.system.dto.dict.DictQuery;
 import io.github.lancelothuxi.mock.system.entity.DictionaryEntity;
 import io.github.lancelothuxi.mock.system.service.IDictionaryService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import io.github.lancelothuxi.mock.constant.CommonConst;
 import io.github.lancelothuxi.mock.dto.IdsModel;
@@ -35,13 +33,11 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/center/system/dict")
-@Tag(name = "dict", description = "字典管理")
 public class DictController {
     private final IDictionaryService dictionaryService;
     private final RedisUtil redisUtil;
 
     @GetMapping("list")
-    @Operation(summary = "查询字典")
     @SaCheckPermission(value = {"system:dict:query"}, mode = SaMode.OR)
     public PageResult<DictionaryEntity> list(DictQuery query) {
         List<DictionaryEntity> list = dictionaryService.list(query);
@@ -51,7 +47,6 @@ public class DictController {
     }
 
     @GetMapping("list1")
-    @Operation(summary = "查询字典")
     @SaCheckPermission(value = {"system:dict:query"}, mode = SaMode.OR)
     public List<DictionaryEntity> list1(DictionaryEntity dictionaryEntity) {
         LambdaQueryWrapper<DictionaryEntity> queryWrapper = new LambdaQueryWrapper<>();
@@ -62,7 +57,6 @@ public class DictController {
     }
 
     @GetMapping("values")
-    @Operation(summary = "查询字典项")
     @SaCheckPermission(value = {"system:dict:query"}, mode = SaMode.OR)
     public List<DictionaryEntity> listValues(@RequestParam("code") String code) {
         //先从缓存中拿
@@ -92,7 +86,6 @@ public class DictController {
     }
 
     @PostMapping("addDict")
-    @Operation(summary = "新增字典")
     @SaCheckPermission(value = {"system:dict:add"}, mode = SaMode.OR)
     public CommonResult addDict(@RequestBody DictionaryEntity dictionaryEntity) {
         dictionaryEntity.setId(String.valueOf(YitIdHelper.nextId()));
@@ -102,7 +95,6 @@ public class DictController {
     }
 
     @PostMapping("editDict")
-    @Operation(summary = "修改字典")
     @SaCheckPermission(value = {"system:dict:edit"}, mode = SaMode.OR)
     public CommonResult editDict(@RequestBody DictionaryEntity dictionaryEntity) {
         //清洗对象
@@ -130,7 +122,6 @@ public class DictController {
     }
 
     @PostMapping("delDict")
-    @Operation(summary = "删除字典")
     @SaCheckPermission(value = {"system:dict:del"}, mode = SaMode.OR)
     public CommonResult delDict(@RequestBody IdsModel model) {
         DictionaryEntity d = dictionaryService.getById(model.getId());
@@ -146,7 +137,6 @@ public class DictController {
     }
 
     @GetMapping("refDictCache")
-    @Operation(summary = "刷新字段缓存")
     @SaCheckPermission(value = {"system:dict:query"}, mode = SaMode.OR)
     public CommonResult refDictCache() {
         DictionaryEntity dictionaryEntity = new DictionaryEntity();

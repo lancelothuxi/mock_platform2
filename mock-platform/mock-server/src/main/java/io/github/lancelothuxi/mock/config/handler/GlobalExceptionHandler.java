@@ -3,7 +3,6 @@ package io.github.lancelothuxi.mock.config.handler;
 import cn.dev33.satoken.exception.NotPermissionException;
 import io.github.lancelothuxi.mock.exception.CustomException;
 import io.github.lancelothuxi.mock.exception.FileException;
-import io.github.lancelothuxi.mock.exception.WorkFlowException;
 import io.github.lancelothuxi.mock.system.ResultCodeEnum;
 import io.github.lancelothuxi.mock.utils.CommonResult;
 import org.springframework.http.HttpStatus;
@@ -20,19 +19,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    /**
-     * 流程异常捕捉处理
-     *
-     * @param ex 异常信息
-     * @return 统一结果
-     */
-    @ExceptionHandler(value = WorkFlowException.class)
-    public CommonResult workFlowExceptionHandler(WorkFlowException ex) {
-        if (ex != null) {
-            return CommonResult.failed(ex.getErrorMessage());
-        }
-        return CommonResult.failed();
-    }
+
 
     /**
      * 自定义异常捕捉处理
