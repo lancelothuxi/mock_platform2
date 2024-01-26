@@ -1,7 +1,6 @@
 package io.github.lancelothuxi.mock.domain;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import lombok.Data;
 
 
 /**
@@ -10,6 +9,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author ruoyi
  * @date 2023-09-08
  */
+@Data
 public class KubeConfig {
     private static final long serialVersionUID = 1L;
 
@@ -33,45 +33,4 @@ public class KubeConfig {
      */
     private String content;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setIsValid(Long isValid) {
-        this.isValid = isValid;
-    }
-
-    public Long getIsValid() {
-        return isValid;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("id", getId())
-                .append("name", getName())
-                .append("isValid", getIsValid())
-                .append("content", getContent())
-                .toString();
-    }
 }

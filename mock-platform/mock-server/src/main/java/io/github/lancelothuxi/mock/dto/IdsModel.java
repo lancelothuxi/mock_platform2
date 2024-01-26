@@ -1,6 +1,5 @@
 package io.github.lancelothuxi.mock.dto;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
@@ -12,6 +11,5 @@ import lombok.Data;
  */
 @Data
 public class IdsModel {
-    @Schema(description = "id集合")
     private String id;
 }

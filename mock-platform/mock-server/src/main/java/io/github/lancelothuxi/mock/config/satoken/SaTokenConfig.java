@@ -31,7 +31,6 @@ public class SaTokenConfig implements WebMvcConfigurer {
         SaJwtUtil.setSaJwtTemplate(new SaJwtTemplate() {
             @Override
             public String generateToken(JWT jwt, String key) {
-                System.out.println("------ 自定义了 token 生成算法");
                 return super.generateToken(jwt, key);
             }
         });

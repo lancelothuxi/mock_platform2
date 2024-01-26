@@ -1,12 +1,11 @@
 package io.github.lancelothuxi.mock.config.handler;
 
-import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;
-import org.simple.enums.system.ResultCodeEnum;
-import org.simple.exception.CustomException;
-import org.simple.exception.FileException;
-import org.simple.exception.WorkFlowException;
-import org.simple.utils.CommonResult;
+import io.github.lancelothuxi.mock.exception.CustomException;
+import io.github.lancelothuxi.mock.exception.FileException;
+import io.github.lancelothuxi.mock.exception.WorkFlowException;
+import io.github.lancelothuxi.mock.system.ResultCodeEnum;
+import io.github.lancelothuxi.mock.utils.CommonResult;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -63,33 +62,6 @@ public class GlobalExceptionHandler {
         return CommonResult.failed();
     }
 
-
-    /**
-     * Sa-token未登录异常处理
-     *
-     * @param exception 异常
-     * @return 返回
-     */
-    @ExceptionHandler(value = NotLoginException.class)
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public CommonResult<Boolean> unauthenticatedExceptionHandler(NotLoginException exception) {
-        // 判断场景值，定制化异常信息
-        ResultCodeEnum resultCode;
-        if (exception.getType().equals(NotLoginException.NOT_TOKEN)) {
-            resultCode = org.simple.enums.system.ResultCodeEnum.NOT_TOKEN_EXCEPTION;
-        } else if (exception.getType().equals(NotLoginException.INVALID_TOKEN)) {
-            resultCode = org.simple.enums.system.ResultCodeEnum.INVALID_EXCEPTION;
-        } else if (exception.getType().equals(NotLoginException.TOKEN_TIMEOUT)) {
-            resultCode = org.simple.enums.system.ResultCodeEnum.TOKEN_TINEDOUT_EXCEPTION;
-        } else if (exception.getType().equals(NotLoginException.BE_REPLACED)) {
-            resultCode = org.simple.enums.system.ResultCodeEnum.BE_REPLACED_EXCEPTION;
-        } else if (exception.getType().equals(NotLoginException.KICK_OUT)) {
-            resultCode = org.simple.enums.system.ResultCodeEnum.KICK_OUT_EXCEPTION;
-        } else {
-            resultCode = org.simple.enums.system.ResultCodeEnum.NOT_TOKEN_EXCEPTION;
-        }
-        return CommonResult.failed();
-    }
 
 
     /**

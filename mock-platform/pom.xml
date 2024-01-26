@@ -19,6 +19,20 @@
         <spring-boot.version>2.7.5</spring-boot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <caffeine.version>2.9.3</caffeine.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-configuration.version>1.10</commons-configuration.version>
+        <druid-spring-boot-starter.version>1.2.13</druid-spring-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.5.2</mybatis-plus-boot-starter.version>
+        <dynamic-datasource-spring-boot-starter.version>3.5.2</dynamic-datasource-spring-boot-starter.version>
+        <mysql-connector-java.version>8.0.30</mysql-connector-java.version>
+        <hutool-all.version>5.8.10</hutool-all.version>
+        <yitter-idgenerator.version>1.0.6</yitter-idgenerator.version>
+        <fastjson.version>1.2.83</fastjson.version>
+        <sa-token.version>1.33.0</sa-token.version>
+        <jsr305.version>3.0.2</jsr305.version>
+        <kubernetes-server-mock.version>6.8.0</kubernetes-server-mock.version>
+        <bcprov-jdk15on.version>1.68</bcprov-jdk15on.version>
+        <bcpkix-jdk15on.version>1.68</bcpkix-jdk15on.version>
     </properties>
     <dependencies>
         <dependency>
@@ -35,11 +49,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity</artifactId>
-                <version>1.7</version>
-            </dependency>
-            <dependency>
                 <groupId>commons-configuration</groupId>
                 <artifactId>commons-configuration</artifactId>
                 <version>1.10</version>
@@ -52,11 +61,6 @@
                 <scope>import</scope>
             </dependency>
 
-            <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-ui</artifactId>
-                <version>1.6.11</version>
-            </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
@@ -97,18 +101,18 @@
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-spring-boot-starter</artifactId>
-                <version>1.33.0</version>
+                <version>${sa-token.version}</version>
             </dependency>
             <!-- Sa-Token 整合 Redis （使用 jackson 序列化方式） -->
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-dao-redis-jackson</artifactId>
-                <version>1.33.0</version>
+                <version>${sa-token.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-jwt</artifactId>
-                <version>1.33.0</version>
+                <version>${sa-token.version}</version>
             </dependency>
             <!--验证码-->
             <dependency>
@@ -132,6 +136,17 @@
                 <scope>test</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15on</artifactId>
+                <version>1.68</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpkix-jdk15on</artifactId>
+                <version>1.68</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

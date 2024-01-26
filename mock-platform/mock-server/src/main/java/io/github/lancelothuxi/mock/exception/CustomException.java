@@ -2,7 +2,6 @@ package io.github.lancelothuxi.mock.exception;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.simple.enums.system.ResultCodeEnum;
 
 /**
  * 自定义异常封装
