@@ -91,7 +91,7 @@ sa-token:
   token-style: tik
   # 是否输出操作日志
   is-log: false
-  jwt-secret-key: yh_liu
+  jwt-secret-key: lancelot
 
 logging:
   level:

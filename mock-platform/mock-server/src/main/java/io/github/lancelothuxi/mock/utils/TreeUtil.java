@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
- * @author yh_liu
+ * @author lancelot
  * @since 2022-7-24
  */
 public class TreeUtil<T extends BaseTree<T>> {

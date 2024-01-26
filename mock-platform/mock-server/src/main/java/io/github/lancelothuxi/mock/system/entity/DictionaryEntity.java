@@ -10,7 +10,7 @@ import io.github.lancelothuxi.mock.dto.BaseEntity;
 /**
  * 数据字典实体
  *
- * @author yh_liu
+ * @author lancelot
  * @version v1.0
  * @since 2022/7/23
  */

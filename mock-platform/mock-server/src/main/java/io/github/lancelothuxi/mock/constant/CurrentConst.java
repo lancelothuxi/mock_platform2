@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 当前信息常量
  *
- * @author yh_liu
+ * @author lancelot
  * @version v1.0
  * @since 2022/11/23
  */

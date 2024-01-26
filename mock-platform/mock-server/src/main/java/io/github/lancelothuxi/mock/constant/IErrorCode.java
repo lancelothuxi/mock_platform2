@@ -3,7 +3,7 @@ package io.github.lancelothuxi.mock.constant;
 /**
  * 异常code枚举
  *
- * @author yh_liu
+ * @author lancelot
  * @version v1.0
  * @since 2022/11/13
  */

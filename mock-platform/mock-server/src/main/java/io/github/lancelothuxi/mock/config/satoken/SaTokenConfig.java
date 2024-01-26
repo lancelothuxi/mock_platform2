@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * sa-token配置
  *
- * @author yh_liu
+ * @author lancelot
  * @version v1.0
  * @since 2022-7-17
  */

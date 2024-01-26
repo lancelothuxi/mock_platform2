@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 /**
  * 自定义异常封装
  *
- * @author yh_liu
+ * @author lancelot
  * @version v1.0
  * @since 2022/7/11
  */

@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Sa-Token的自定义权限验证扩展
  *
- * @author yh_liu
+ * @author lancelot
  * @version v1.0
  * @since 2022/11/13
  */

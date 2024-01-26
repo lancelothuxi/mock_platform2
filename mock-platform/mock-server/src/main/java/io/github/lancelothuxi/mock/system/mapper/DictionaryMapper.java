@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 /**
  * DictionaryMapper
  *
- * @author yh_liu
+ * @author lancelot
  * @version v1.0
  * @since 2022/11/13
  */

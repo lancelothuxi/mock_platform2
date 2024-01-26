@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Sa-Token整合jwt(Simple简单模式)
  *
- * @author yh_liu
+ * @author lancelot
  * @version v1.0
  * @since 2022-11-28
  */

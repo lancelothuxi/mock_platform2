@@ -6,7 +6,7 @@ import lombok.Data;
 /**
  * 字符串常量
  *
- * @author yh_liu
+ * @author lancelot
  * @version v1.0
  * @since 2022/7/17
  */

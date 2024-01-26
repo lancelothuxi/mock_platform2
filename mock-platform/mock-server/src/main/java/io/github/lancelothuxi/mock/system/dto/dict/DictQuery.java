@@ -7,7 +7,7 @@ import io.github.lancelothuxi.mock.dto.PageModel;
 /**
  * DictQuery
  *
- * @author yh_liu
+ * @author lancelot
  * @version v1.0
  * @since 2022/12/7
  */
