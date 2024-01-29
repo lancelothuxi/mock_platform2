@@ -6,24 +6,10 @@ server:
 spring:
   #多数据库配置
   datasource:
-    dynamic:
-      p6spy: false
-      lazy: false
-      primary: master
-      strict: false
-      druid:
-        #定时执行数据链接检测语句 防止数据库闲时超时断开链接
-        validation-query: select 1 from dual #执行语句
-        test-while-idle: true #空闲时执行
-        time-between-eviction-runs-millis: 60000 #执行间隔
-      datasource:
-        #基础数据库-mysql
-        master:
-          poolName: master
-          username: root
-          password: 123456
-          url: jdbc:mysql://localhost:3306/frsimple_boot?characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
-          driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
   #redis配置
   redis:
     # redis数据库索引(默认为0)，我们使用索引为3的数据库，避免和其他数据库冲突
@@ -45,33 +31,6 @@ spring:
         min-idle: 0
         # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
         max-wait: -1
-config:
-  minio:
-    endpoint: https://localhost:9090
-    accessKey: minioAdmin
-    secretKey: minioAdmin
-    fileHost: https://localhost:9090
-  jwt:
-    expTime: 20
-    tokenCode: Authorization
-    secretKey: 123456
-  druid:
-    enabled: true
-    loginUsername: admin
-    loginPassword: 123456
-    allow:
-    deny:
-    exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
-  snowflake:
-    workerId: 1
-  springdoc:
-    title: API接口文档
-    description: 在线swagger
-    version: 3.0
-    name: xxx
-    url:
-    email: xxx@qq.com
-
 app:
   auth:
     lockTime: 10

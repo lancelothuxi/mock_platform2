@@ -29,7 +29,7 @@ public class SslConfiguration {
     @Bean
     public SSLContext sslContext() throws Exception {
         InputStream certInputStream = resourceLoader.getResource("classpath:" + "cert/certificate.pem").getInputStream();
-        InputStream privateKeyInputStream = resourceLoader.getResource("classpath:" + "cert/private-key.pem").getInputStream();
+        InputStream privateKeyInputStream = resourceLoader.getResource("classpath:" + "cert/private.key").getInputStream();
         String password = "";
         KeyStore keyStore = PEMImporter.createKeyStore(privateKeyInputStream, "", certInputStream, "");
         KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());

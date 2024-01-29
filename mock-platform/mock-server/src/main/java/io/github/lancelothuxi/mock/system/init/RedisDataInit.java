@@ -19,7 +19,7 @@ import java.util.List;
  * @version v1.0
  * @since 2022/11/13
  */
-@Configuration
+//@Configuration
 @AllArgsConstructor
 public class RedisDataInit {
 
