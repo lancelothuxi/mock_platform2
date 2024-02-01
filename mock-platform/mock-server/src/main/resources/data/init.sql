@@ -93,6 +93,42 @@ CREATE TABLE `center_dictionary`
   COLLATE = utf8mb3_general_ci COMMENT = '字典信息表'
   ROW_FORMAT = DYNAMIC;
 
+
+-- auto-generated definition
+drop table if exists mock_config;
+create table mock_config
+(
+    id               int auto_increment comment '主键' primary key,
+    application_name varchar(128)                          null comment '应用名',
+    interface_name   varchar(255)                          null comment '服务名',
+    method_name      varchar(255)                          null comment '方法名',
+    group_name       varchar(255)                          null comment '分组名',
+    version          varchar(32)                           null comment '版本号',
+    enabled          char        default '0'               null comment '开关（1开启 0关闭）',
+    created_time     datetime    default CURRENT_TIMESTAMP not null comment '创建时间',
+    updated_time     datetime    default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+    type             varchar(10) default 'dubbo'           not null comment 'dubbo/dubboreset/feign/dynamic',
+    server_side_mock int         default 1                 not null comment '是否服务端mock 1是 0 表示客户端mock'
+)
+    comment '服务mock配置' charset = utf8mb3;
+
+-- auto-generated definition
+drop table if exists mock_data;
+create table mock_data
+(
+    id               int auto_increment comment '主键' primary key,
+    data             varchar(4096)                      null comment 'mock响应数据值',
+    mock_config_id   int                                null comment 'mock规则配置表的id',
+    match_expression varchar(1024)                      null comment 'mock请求参数匹配规则',
+    created_time     datetime default CURRENT_TIMESTAMP not null comment '创建时间',
+    updated_time     datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+    timeout          int(10)                             null comment '指定超时时间',
+    enabled          int      default 1                 not null comment '是否启用'
+)
+    comment 'mock数据' charset = utf8mb3;
+create index mock_data_mock_config_id_index
+    on mock_data (mock_config_id);
+
 -- ----------------------------
 -- Records of center_dictionary
 -- ----------------------------
@@ -141,24 +177,6 @@ VALUES ('D20220618101746016XNLKZ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NUL
 INSERT INTO `center_dictionary`
 VALUES ('D20220618101754375AICCV', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '已锁定', '1',
         'SP_USERSTATUS');
-INSERT INTO `center_dictionary`
-VALUES ('D20221214091836109XZ1MW', '2022-12-14 09:18:36', NULL, NULL, NULL, '2023-01-17 16:59:29', '1', '超级管理员',
-        NULL, NULL, NULL, NULL, '余额', 'ye', 'SP_PAYTYPE');
-INSERT INTO `center_dictionary`
-VALUES ('D20221214092725790805AA', '2022-12-14 09:27:26', NULL, NULL, NULL, '2023-01-17 16:59:29', '1', '超级管理员',
-        NULL, NULL, NULL, NULL, '微信', 'wx', 'SP_PAYTYPE');
-INSERT INTO `center_dictionary`
-VALUES ('D20221214093215181EQLEC', '2022-12-14 09:32:15', NULL, NULL, NULL, '2023-01-17 16:59:29', '1', '超级管理员',
-        NULL, NULL, NULL, NULL, '支付宝', 'ali', 'SP_PAYTYPE');
-INSERT INTO `center_dictionary`
-VALUES ('D20221230201104181DMF5V', '2022-12-30 20:11:04', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-        '数据来源', '#', 'SP_SHOP_DATASOURCE');
-INSERT INTO `center_dictionary`
-VALUES ('D202212302011147287K362', '2022-12-30 20:11:15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-        '微信', '01', 'SP_SHOP_DATASOURCE');
-INSERT INTO `center_dictionary`
-VALUES ('D202212302011292117H6JY', '2022-12-30 20:11:29', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-        'H5', '02', 'SP_SHOP_DATASOURCE');
 
 -- ----------------------------
 -- Table structure for center_email

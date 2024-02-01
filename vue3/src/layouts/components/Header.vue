@@ -79,10 +79,6 @@ const curUser = computed(() => {
   return userStore.curUser;
 });
 
-const goQQ = () => {
-  window.open('http://wpa.qq.com/msgrd?v=3&uin=2827916671&site=qq&menu=yes');
-};
-
 const props = defineProps({
   theme: {
     type: String,
