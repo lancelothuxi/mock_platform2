@@ -6,6 +6,7 @@ import io.github.lancelothuxi.mock.system.dto.auth.LoginParam;
 import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserDto;
 import io.github.lancelothuxi.mock.system.dto.onlineuser.OnlineUserQuery;
 import io.github.lancelothuxi.mock.system.service.IAuthService;
+import io.github.lancelothuxi.mock.utils.CommonResult;
 import lombok.AllArgsConstructor;
 import io.github.lancelothuxi.mock.dto.PageResult;
 import io.github.lancelothuxi.mock.exception.CustomException;

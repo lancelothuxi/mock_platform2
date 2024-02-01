@@ -298,12 +298,6 @@ VALUES ('6', '字典管理', 'c', '', 'dic', '3', 'pages/system/dic/index', 3, '
     \"title\": \"字典管理\"
   }');
 INSERT INTO `center_menu`
-VALUES ('7', '机构管理', 'c', '', 'tenant', '3', 'pages/system/tenant/index', 0, '0', '2022-06-06 15:58:13',
-        '2022-06-17 18:17:10', 'barcode', '{
-    \"icon\": \"home\",
-    \"title\": \"机构管理\"
-  }');
-INSERT INTO `center_menu`
 VALUES ('8', '用户管理', 'c', '', 'user', '3', 'pages/system/user/index', 1, '0', '2022-06-06 15:58:13',
         '2022-08-03 18:25:52', 'barcode', '{
     \"icon\": \"user\",
@@ -343,18 +337,6 @@ VALUES ('BTN202206241936181131YR6B', '删除用户', 'b', 'system:user:del', NUL
 INSERT INTO `center_menu`
 VALUES ('BTN20220624193628120EW0DD', '查询用户', 'b', 'system:user:query', NULL, '8', NULL, NULL, '0',
         '2022-06-24 19:36:28', '2022-06-24 19:36:28', NULL, NULL);
-INSERT INTO `center_menu`
-VALUES ('BTN20220624193938973JMBB7', '查询机构', 'b', 'system:tenant:query', NULL, '7', NULL, NULL, '0',
-        '2022-06-24 19:39:39', '2022-06-24 19:39:39', NULL, NULL);
-INSERT INTO `center_menu`
-VALUES ('BTN202206241939506085IE7O', '新增机构', 'b', 'system:tenant:add', NULL, '7', NULL, NULL, '0',
-        '2022-06-24 19:39:51', '2022-06-24 19:39:51', NULL, NULL);
-INSERT INTO `center_menu`
-VALUES ('BTN20220624194002776R96TI', '修改机构', 'b', 'system:tenant:edit', NULL, '7', NULL, NULL, '0',
-        '2022-06-24 19:40:03', '2022-06-24 19:40:03', NULL, NULL);
-INSERT INTO `center_menu`
-VALUES ('BTN20220624194010155TW62M', '删除机构', 'b', 'system:tenant:del', NULL, '7', NULL, NULL, '0',
-        '2022-06-24 19:40:10', '2022-06-24 19:40:10', NULL, NULL);
 INSERT INTO `center_menu`
 VALUES ('BTN20220624194038782F1L34', '新增角色', 'b', 'system:role:add', NULL, '5', NULL, NULL, '0',
         '2022-06-24 19:40:39', '2022-06-24 19:40:39', NULL, NULL);
@@ -506,49 +488,19 @@ INSERT INTO `center_menu`
 VALUES ('BTN20221230151312335A6HEI', '查询', 'b', 'shop:orderlist:query', NULL, 'MENU20220908221946652F0E34', NULL,
         NULL, '0', '2022-12-30 15:13:12', '2022-12-30 15:13:12', NULL, NULL);
 INSERT INTO `center_menu`
-VALUES ('BTN20221230151400849W4PTM', '发货', 'b', 'shop:orderlist:send', NULL, 'MENU20220908221946652F0E34', NULL, NULL,
-        '0', '2022-12-30 15:14:01', '2022-12-30 15:14:01', NULL, NULL);
-INSERT INTO `center_menu`
 VALUES ('BTN20221230203730395QJV8L', '查询', 'b', 'shop:user:query', NULL, 'MENU20220917191746636XPTP2', NULL, NULL,
         '0', '2022-12-30 20:37:30', '2022-12-30 20:37:30', NULL, NULL);
 INSERT INTO `center_menu`
 VALUES ('BTN20230101150117420BFW2J', '查询', 'b', 'shop:ordermark:query', NULL, 'MENU202209082220286558DO98', NULL,
         NULL, '0', '2023-01-01 15:01:17', '2023-01-01 15:01:17', NULL, NULL);
 INSERT INTO `center_menu`
-VALUES ('BTN20230101220007974OMCDV', '添加回复', 'b', 'shop:ordermark:add', NULL, 'MENU202209082220286558DO98', NULL,
-        NULL, '0', '2023-01-01 22:00:08', '2023-01-01 22:00:08', NULL, NULL);
-INSERT INTO `center_menu`
-VALUES ('BTN20230102115505646J3L4C', '删除评价', 'b', 'shop:ordermark:del', NULL, 'MENU202209082220286558DO98', NULL,
-        NULL, '0', '2023-01-02 11:55:06', '2023-01-02 11:55:06', NULL, NULL);
-INSERT INTO `center_menu`
 VALUES ('BTN2023010716062356775GXB', '查询', 'b', 'shop:orderservice:query', NULL, 'MENU20221230202951797ZIE0F', NULL,
         NULL, '0', '2023-01-07 16:06:24', '2023-01-07 16:06:24', NULL, NULL);
-INSERT INTO `center_menu`
-VALUES ('BTN20230108120210343LGRYG', '填写/修改运单', 'b', 'shop:orderservice:edit', NULL, 'MENU20221230202951797ZIE0F',
-        NULL, NULL, '0', '2023-01-08 12:02:10', '2023-01-08 12:02:10', NULL, NULL);
-INSERT INTO `center_menu`
-VALUES ('BTN20230108120226608QWZ6D', '撤销单子', 'b', 'shop:orderservice:del', NULL, 'MENU20221230202951797ZIE0F', NULL,
-        NULL, '0', '2023-01-08 12:02:27', '2023-01-08 12:02:27', NULL, NULL);
-INSERT INTO `center_menu`
-VALUES ('BTN20230108120244040PD9PD', '审核单子', 'b', 'shop:orderservice:check', NULL, 'MENU20221230202951797ZIE0F',
-        NULL, NULL, '0', '2023-01-08 12:02:44', '2023-01-08 12:02:44', NULL, NULL);
 INSERT INTO `center_menu`
 VALUES ('MENU20220612154353674IOIVI', '在线用户', 'c', NULL, 'online', '3', 'pages/system/online/index', 100, '0',
         '2022-06-12 15:43:54', '2022-06-17 18:16:22', NULL, '{
     \"icon\": \"laptop\",
     \"title\": \"在线用户\"
-  }');
-INSERT INTO `center_menu`
-VALUES ('MENU20220612154748064K2C40', '应用管理', 'c', NULL, 'oauth', '3', 'pages/system/oauth/index', 99, '0',
-        '2022-06-12 15:47:48', '2022-06-17 18:18:21', NULL, '{
-    \"icon\": \"lock-on\",
-    \"title\": \"应用管理\"
-  }');
-INSERT INTO `center_menu`
-VALUES ('MENU20220614192715011Q8MNB', '接口日志', 'c', NULL, 'logs', '3', 'pages/system/logs/index', 101, '0',
-        '2022-06-14 19:27:15', '2022-06-14 21:26:57', NULL, '{
-    \"icon\": \"root-list\",
-    \"title\": \"接口日志\"
   }');
 
 -- ----------------------------

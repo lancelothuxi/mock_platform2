@@ -19,32 +19,7 @@
         <div class="operations-container">
           <!-- 搜索框 -->
           <search v-if="layout !== 'side'" :layout="layout" />
-
           <t-popup placement="left-bottom">
-            <t-button theme="primary">
-              <template #icon>
-                <t-icon name="logo-wecom"></t-icon>
-              </template>
-              扫码进入交流群</t-button
-            >
-            <template #content>
-              <t-space>
-                <div style="display: flex; flex-direction: column; align-items: center">
-                  <t-image
-                    style="height: 185px; width: 185px"
-                    src="https://pengpengyu-test.oss-cn-zhangjiakou.aliyuncs.com/image/wx.jpg"
-                  ></t-image>
-                  <span>扫码进入微信交流群</span>
-                </div>
-                <div style="display: flex; flex-direction: column; align-items: center">
-                  <t-image
-                    style="height: 185px; width: 185px"
-                    src="https://pengpengyu-test.oss-cn-zhangjiakou.aliyuncs.com/image/qq.jpg"
-                  ></t-image>
-                  <span>扫码进入QQ交流群</span>
-                </div>
-              </t-space>
-            </template>
           </t-popup>
           <!-- 全局通知 -->
           <t-tooltip placement="bottom" content="系统设置">
@@ -52,26 +27,6 @@
               <t-icon name="setting" @click="toggleSettingPanel" />
             </t-button>
           </t-tooltip>
-          <!-- <t-popup class="placement bottom center" placement="bottom" show-arrow destroy-on-close>
-            <template #content>
-              <div style="display: flex; flex-direction: column; text-align: center; color: red">
-                <span>联系作者</span>
-                <img
-                  style="width: 200px; heigth: 200px"
-                  src="https://pengpengyu-test.oss-cn-zhangjiakou.aliyuncs.com/image/3101656383387_.pic.jpg"
-                />
-              </div>
-            </template>
-            <t-button theme="default" shape="square" variant="text">
-              <t-icon name="help-circle" />
-            </t-button>
-          </t-popup> -->
-          <notice />
-          <!-- <t-tooltip placement="bottom" content="代码仓库">
-            <t-button theme="default" shape="square" variant="text" @click="navToGitHub">
-              <t-icon name="logo-github" />
-            </t-button>
-          </t-tooltip> -->
           <t-dropdown :min-column-width="135" trigger="click">
             <template #dropdown>
               <t-dropdown-menu>
@@ -113,7 +68,6 @@ import { MenuRoute } from '@/interface';
 import { DialogPlugin } from 'tdesign-vue-next';
 import LayoutBreadcrumb from './Breadcrumb.vue';
 
-import Notice from './Notice.vue';
 import Search from './Search.vue';
 import MenuContent from './MenuContent';
 
