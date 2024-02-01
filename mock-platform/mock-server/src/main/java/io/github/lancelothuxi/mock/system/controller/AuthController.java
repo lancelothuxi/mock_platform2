@@ -52,10 +52,4 @@ public class AuthController {
         pageResult.setTotal(query.getTotal());
         return pageResult;
     }
-
-    @SaIgnore
-    @GetMapping("/getCode")
-    public void getCode(HttpServletResponse response, @RequestParam("sp") String sp) throws IOException {
-        authService.getCode(response, sp);
-    }
 }

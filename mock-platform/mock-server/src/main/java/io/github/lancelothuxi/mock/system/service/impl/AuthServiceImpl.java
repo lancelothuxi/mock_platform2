@@ -59,7 +59,6 @@ public class AuthServiceImpl implements IAuthService {
     @Override
     public String loginByUserName(LoginParam loginParam) throws CustomException {
         // 验证验证码是否过期或者输入正确
-        checkIsValidCode(loginParam.getCode(), loginParam.getSp());
         UserEntity userEntity = BeanUtil.toBean(checkLogin(loginParam), UserEntity.class);
         // 所有验证通过后开始登录
         StpUtil.login(userEntity.getId(), SaLoginConfig.setDevice(loginParam.getDevice()).
@@ -137,22 +136,6 @@ public class AuthServiceImpl implements IAuthService {
         captcha.out(outputStream);
     }
 
-    /**
-     * 校验验证码
-     *
-     * @param code 验证码
-     * @param sp   时间
-     */
-    public void checkIsValidCode(String code, String sp) throws CustomException {
-        Object redisCode = redisUtil.get(RedisConst.CODE_STR + sp);
-        if (ObjectUtil.isNull(redisCode)) {
-            throw new CustomException(ResultCodeEnum.A5205.getCode());
-        }
-        redisUtil.delete(RedisConst.CODE_STR + sp);
-        if (!StrUtil.equals(String.valueOf(redisCode), code)) {
-            throw new CustomException(ResultCodeEnum.A5204.getCode());
-        }
-    }
 
     /**
      * 登录验证

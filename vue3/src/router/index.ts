@@ -32,12 +32,6 @@ export const defaultRouterList: Array<RouteRecordRaw> = [
         component: () => import('@/pages/system/user/center.vue'),
         meta: { title: '设置', hidden: true, icon: 'setting' },
       },
-      {
-        path: 'msg',
-        name: 'userMsg',
-        component: () => import('@/pages/system/msg/index.vue'),
-        meta: { title: '消息中心', hidden: true, icon: 'notification' },
-      },
     ],
   },
   {

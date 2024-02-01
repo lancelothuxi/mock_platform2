@@ -6,10 +6,11 @@ server:
 spring:
   #多数据库配置
   datasource:
-    url: jdbc:h2:mem:mydb
-    username: sa
-    password: password
-    driverClassName: org.h2.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/mock_platform?characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #redis配置
   #redis配置
   redis:
     # redis数据库索引(默认为0)，我们使用索引为3的数据库，避免和其他数据库冲突
@@ -31,6 +32,7 @@ spring:
         min-idle: 0
         # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
         max-wait: -1
+
 app:
   auth:
     lockTime: 10

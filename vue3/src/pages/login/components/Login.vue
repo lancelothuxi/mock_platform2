@@ -39,29 +39,6 @@
         </div>
         <!-- </template> -->
       </t-tab-panel>
-      <t-tab-panel :value="'phone'" label="手机登录" :style="{ paddingTop: '30px', paddingBottom: '30px' }">
-        <!-- <template> -->
-        <t-form-item name="phone">
-          <t-input v-model="formData.phone" size="large" placeholder="请输入手机号">
-            <template #prefix-icon>
-              <t-icon name="mobile" />
-            </template>
-          </t-input>
-        </t-form-item>
-        <transition name="fade" mode="out-in">
-          <t-form-item v-if="formData.phone" class="verification-code" name="code">
-            <t-input v-model="formData.code" size="large" placeholder="请输入短信验证码">
-              <template #prefix-icon>
-                <t-icon name="mail" />
-              </template>
-            </t-input>
-            <t-button variant="outline" :disabled="countDown > 0 || isCanSendSms" @click="sendSmsHandle">
-              {{ countDown == 0 ? '发送验证码' : `${countDown}秒后可重发` }}
-            </t-button>
-          </t-form-item>
-        </transition>
-        <!-- </template> -->
-      </t-tab-panel>
     </t-tabs>
 
     <!-- 扫码登陆 -->
@@ -132,10 +109,7 @@ const formData = ref({ ...INITIAL_DATA });
 const showPsw = ref(false);
 const isCanLogin = computed(() => {
   if (type.value === 'password') {
-    return !(formData.value.userName && formData.value.password && formData.value.code);
-  }
-  if (type.value === 'phone') {
-    return !(formData.value.phone && formData.value.code);
+    return !(formData.value.userName && formData.value.password);
   }
   return false;
 });
@@ -190,9 +164,6 @@ const onSubmit = async ({ validateResult }) => {
         path: '/main',
       });
     } catch (e) {
-      if (type.value === 'password') {
-        await getImgCode();
-      }
       MessagePlugin.error(e.message);
     } finally {
       isLoad.value = false;
