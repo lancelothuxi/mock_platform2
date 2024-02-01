@@ -1,7 +1,6 @@
 <template>
   <t-watermark
     :watermark-content="{
-      text: 'FrSimpleBoot',
     }"
     :width="120"
     :height="60"

@@ -189,34 +189,6 @@ public class UserController {
         return CommonResult.success(userService.updateById(userEntity));
     }
 
-    @GetMapping("sendMsg")
-    public CommonResult sendMsg(@RequestParam("phone") String phone) {
-        //判断是否和当前手机号一直
-        UserEntity phoneUserEntity = new UserEntity();
-        phoneUserEntity.setPhone(phone);
-        if (userService.list(Wrappers.query(phoneUserEntity)).size() != 0) {
-            return CommonResult.failed("新手机号已注册，不能重复使用");
-        }
-
-        String key = RedisConst.PHONE_UPDATE_CODE_STR + AuthUtils.getUserId();
-        //校验是否发送过短信以免重复发送60秒只能发送一次
-        if (redisUtil.hasKey(key)) {
-            Long seconds = redisUtil.getExpire(key);
-            if (seconds > 0) {
-                return CommonResult.failed("已获取过短信，请等待" + seconds + "秒之后在获取");
-            }
-        }
-        //获取四位随机数字
-        String rom = cn.hutool.core.util.RandomUtil.randomNumbers(4);
-        try {
-            redisUtil.set(RedisConst.PHONE_UPDATE_CODE_STR + AuthUtils.getUserId(),
-                    rom + "_" + phone, RedisConst.CODE_TIMEOUT);
-        } catch (Exception e) {
-            return CommonResult.failed("发送失败：" + e.getMessage());
-        }
-        return CommonResult.failed("发送失败未配置相关信息");
-    }
-
     @GetMapping("updatePhone")
     public CommonResult updatePhone(@RequestParam("password") String password,
                                     @RequestParam("code") String code) {

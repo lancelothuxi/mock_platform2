@@ -148,7 +148,6 @@ export default defineComponent({
                   ) : (
                     <div style="display:flex;flex-direction: row;align-items: center;">
                       <tLogo class={`${prefix}-side-nav-logo-t-logo1`} />
-                      <h2 class={`${prefix}-side-nav-logo-tdesign-logo1`}>FrSimpleBoot</h2>
                     </div>
                   )}
                 </span>
